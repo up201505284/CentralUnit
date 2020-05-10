@@ -1,0 +1,1560 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1032</width>
+    <height>642</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabChannel">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>991</width>
+      <height>581</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="currentIndex">
+     <number>4</number>
+    </property>
+    <widget class="QWidget" name="channel1">
+     <property name="styleSheet">
+      <string notr="true">Channel 1</string>
+     </property>
+     <attribute name="title">
+      <string>Channel 1</string>
+     </attribute>
+     <widget class="QWidget" name="gridLayoutWidget_6">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>30</y>
+        <width>941</width>
+        <height>491</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_channel1">
+       <item row="2" column="0">
+        <layout class="QVBoxLayout" name="verticalLayoutBasicCommands_channel1">
+         <item>
+          <widget class="QLabel" name="labelBasicCommands_channel">
+           <property name="text">
+            <string>Basic Commands</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonInitialSetup_channel1">
+           <property name="text">
+            <string>Initial Setup</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton1">
+           <property name="text">
+            <string>Safe Reset</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonStop_channel1">
+           <property name="text">
+            <string>Stop</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayoutBasicControl_channel1">
+           <item>
+            <widget class="QPushButton" name="pushButtonBasicExtended_channel1">
+             <property name="text">
+              <string>Extended</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButtonBasicRefracted_channel1">
+             <property name="text">
+              <string>Refracted</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="3">
+        <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft_channel1">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft2_channel1">
+           <item>
+            <widget class="QLabel" name="labelStartStopSoft_channel1">
+             <property name="text">
+              <string>  Start and Stop Soft</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft3_channel1">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutAccelarationTime_channel1">
+               <item>
+                <widget class="QLabel" name="labelAccelarationTime_channel1">
+                 <property name="text">
+                  <string>Accelaration Time (ms):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditAccelarationTime_channel1"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutAccelarationRate_channel1">
+               <item>
+                <widget class="QLabel" name="labelAccelarationRate_channel1">
+                 <property name="text">
+                  <string>Accelaration Rate (mm/s²):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditAccelarationRate_channel1"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutSpace_channel1"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonUpdateStartStopSoft_channel1">
+           <property name="text">
+            <string>Update</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="0">
+        <widget class="Line" name="line_16">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="Line" name="line_17">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <layout class="QVBoxLayout" name="verticalLayoutLinearActuatorSpecifications_channel1">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayoutLinearActuator_channel1">
+           <item>
+            <widget class="QLabel" name="labelLinearActuatorSpecifications1">
+             <property name="text">
+              <string>Linear Actuator Specifications</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayoutSpecifications_channel1">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutModel_channel1">
+               <item>
+                <widget class="QLabel" name="labelModel_channel1">
+                 <property name="text">
+                  <string>Model:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditModel_channel1"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutStrokeLenght_channel1">
+               <item>
+                <widget class="QLabel" name="labelStrokeLenght_channel1">
+                 <property name="text">
+                  <string>Stroke Lenght (mm):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditStrokeLenght_channel1"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalMaxCurrent_channel1">
+               <item>
+                <widget class="QLabel" name="labelMaxCurrent_channel1">
+                 <property name="text">
+                  <string>Maximum Current (A):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditMaxCurrent_channel1"/>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonUpdateLinearActuatorSpecifications_channel1">
+           <property name="text">
+            <string>Update</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="1" rowspan="3">
+        <widget class="Line" name="line_18">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <layout class="QVBoxLayout" name="verticalLayoutAdvancedCommands_channel1">
+         <item>
+          <widget class="QLabel" name="labelAdvancedCommands_channel1">
+           <property name="text">
+            <string>Advanced Commands</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayoutAdvancedExtended_channel1">
+           <item>
+            <widget class="QLabel" name="labelExtendedAdvanced_channel1">
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="horizontalSliderExtended_channel1">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonExtended_channel1">
+           <property name="text">
+            <string>Extended</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayoutAdvanceddRefracted_channel1">
+           <item>
+            <widget class="QLabel" name="labelRefractedAdvanced_channel1">
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="horizontalSliderRefracted_channel1">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonRefracted_channel1">
+           <property name="text">
+            <string>Refracted</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkBoxFileReport_channel1">
+           <property name="text">
+            <string>Generate File Report</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkBoxGraphics_channel1">
+           <property name="text">
+            <string>Generate Graphics</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="channel2">
+     <property name="styleSheet">
+      <string notr="true">Channel 2</string>
+     </property>
+     <attribute name="title">
+      <string>Channel 2</string>
+     </attribute>
+     <widget class="QWidget" name="gridLayoutWidget_7">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>20</y>
+        <width>941</width>
+        <height>491</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_channel2">
+       <item row="2" column="0">
+        <layout class="QVBoxLayout" name="verticalLayoutBasicCommands_channel2">
+         <item>
+          <widget class="QLabel" name="labelBasicCommands_channel2">
+           <property name="text">
+            <string>Basic Commands</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonInitialSetup_channel2">
+           <property name="text">
+            <string>Initial Setup</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonSafeReset_channel2">
+           <property name="text">
+            <string>Safe Reset</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonStop_channel2">
+           <property name="text">
+            <string>Stop</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayoutBasicControl_channel2">
+           <item>
+            <widget class="QPushButton" name="pushButtonBasicExtended_channel2">
+             <property name="text">
+              <string>Extended</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton">
+             <property name="text">
+              <string>Refracted</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="3">
+        <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft_channel2">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft2_channel2">
+           <item>
+            <widget class="QLabel" name="labelStartStopSoft_channel2">
+             <property name="text">
+              <string>  Start and Stop Soft</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft3_channel2">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutAccelarationTime_channel2">
+               <item>
+                <widget class="QLabel" name="labelAccelarationTime_channel2">
+                 <property name="text">
+                  <string>Accelaration Time (ms):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditAccelarationTime_channel2"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutAccelarationRate_channel2">
+               <item>
+                <widget class="QLabel" name="labelAccelarationRate_channel2">
+                 <property name="text">
+                  <string>Accelaration Rate (mm/s²):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditAccelarationRate_channel2"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutSpace_channel2"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonUpdateStartStopSoft_channel2">
+           <property name="text">
+            <string>Update</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="0">
+        <widget class="Line" name="line_19">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="Line" name="line_20">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <layout class="QVBoxLayout" name="verticalLayoutLinearActuatorSpecifications_channel2">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayoutLinearActuator_channel2">
+           <item>
+            <widget class="QLabel" name="labelLinearActuatorSpecifications2">
+             <property name="text">
+              <string>Linear Actuator Specifications</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayoutSpecifications_channel2">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutModel_channel2">
+               <item>
+                <widget class="QLabel" name="labelModel_channel2">
+                 <property name="text">
+                  <string>Model:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditModel_channel2"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutStrokeLenght_channel2">
+               <item>
+                <widget class="QLabel" name="labelStrokeLenght_channel2">
+                 <property name="text">
+                  <string>Stroke Lenght (mm):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditStrokeLenght_channel2"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalMaxCurrent_channel2">
+               <item>
+                <widget class="QLabel" name="labelMaxCurrent_channel2">
+                 <property name="text">
+                  <string>Maximum Current (A):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditMaxCurrent_channel2"/>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonUpdateLinearActuatorSpecifications_channel2">
+           <property name="text">
+            <string>Update</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="1" rowspan="3">
+        <widget class="Line" name="line_21">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <layout class="QVBoxLayout" name="verticalLayoutAdvancedCommands_channel2">
+         <item>
+          <widget class="QLabel" name="labelAdvancedCommands_channel2">
+           <property name="text">
+            <string>Advanced Commands</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayoutAdvancedExtended_channel2">
+           <item>
+            <widget class="QLabel" name="labelExtendedAdvanced_channel2">
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="horizontalSliderExtended_channel2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonExtended_channel2">
+           <property name="text">
+            <string>Extended</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayoutAdvanceddRefracted_channel2">
+           <item>
+            <widget class="QLabel" name="labelRefractedAdvanced_channel2">
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="horizontalSliderRefracted_channel2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonRefracted_channel2">
+           <property name="text">
+            <string>Refracted</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkBoxFileReport_channel2">
+           <property name="text">
+            <string>Generate File Report</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkBoxGraphics_channel2">
+           <property name="text">
+            <string>Generate Graphics</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="channel3">
+     <attribute name="title">
+      <string>Channel 3</string>
+     </attribute>
+     <widget class="QWidget" name="gridLayoutWidget_8">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>941</width>
+        <height>491</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_channel3">
+       <item row="2" column="0">
+        <layout class="QVBoxLayout" name="verticalLayoutBasicCommands_channel3">
+         <item>
+          <widget class="QLabel" name="labelBasicCommands_channel3">
+           <property name="text">
+            <string>Basic Commands</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonInitialSetup_channel3">
+           <property name="text">
+            <string>Initial Setup</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonSafeReset_channel3">
+           <property name="text">
+            <string>Safe Reset</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonStop_channel3">
+           <property name="text">
+            <string>Stop</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayoutBasicControl_channel3">
+           <item>
+            <widget class="QPushButton" name="pushButtonBasicExtended_channel3">
+             <property name="text">
+              <string>Extended</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButtonBasicRefracted_channel3">
+             <property name="text">
+              <string>Refracted</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="3">
+        <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft_channel3">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft2_channel3">
+           <item>
+            <widget class="QLabel" name="labelStartStopSoft_channel3">
+             <property name="text">
+              <string>  Start and Stop Soft</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft3_channel3">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutAccelarationTime_channel3">
+               <item>
+                <widget class="QLabel" name="labelAccelarationTime_channel3">
+                 <property name="text">
+                  <string>Accelaration Time (ms):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditAccelarationTime_channel3"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutAccelarationRate_channel3">
+               <item>
+                <widget class="QLabel" name="labelAccelarationRate_channel3">
+                 <property name="text">
+                  <string>Accelaration Rate (mm/s²):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditAccelarationRate_channel3"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutSpace_channel3"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonUpdateStartStopSoft_channel3">
+           <property name="text">
+            <string>Update</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="0">
+        <widget class="Line" name="line_22">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="Line" name="line_23">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <layout class="QVBoxLayout" name="verticalLayoutLinearActuatorSpecifications_channel3">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayoutLinearActuator_channel3">
+           <item>
+            <widget class="QLabel" name="labelLinearActuatorSpecifications3">
+             <property name="text">
+              <string>Linear Actuator Specifications</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayoutSpecifications_channel3">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutModel_channel3">
+               <item>
+                <widget class="QLabel" name="labelModel_channel3">
+                 <property name="text">
+                  <string>Model:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditModel_channel3"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutStrokeLenght_channel3">
+               <item>
+                <widget class="QLabel" name="labelStrokeLenght_channel3">
+                 <property name="text">
+                  <string>Stroke Lenght (mm):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditStrokeLenght_channel3"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalMaxCurrent_channel3">
+               <item>
+                <widget class="QLabel" name="labelMaxCurrent_channel3">
+                 <property name="text">
+                  <string>Maximum Current (A):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditMaxCurrent_channel3"/>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonUpdateLinearActuatorSpecifications_channel3">
+           <property name="text">
+            <string>Update</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="1" rowspan="3">
+        <widget class="Line" name="line_24">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <layout class="QVBoxLayout" name="verticalLayoutAdvancedCommands_channel3">
+         <item>
+          <widget class="QLabel" name="labelAdvancedCommands_channel3">
+           <property name="text">
+            <string>Advanced Commands</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayoutAdvancedExtended_channel3">
+           <item>
+            <widget class="QLabel" name="labelExtendedAdvanced_channel3">
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="horizontalSliderExtended_channel3">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonExtended_channel3">
+           <property name="text">
+            <string>Extended</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayoutAdvanceddRefracted_channel3">
+           <item>
+            <widget class="QLabel" name="labelRefractedAdvanced_channel3">
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="horizontalSliderRefracted_channel3">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonRefracted_channel3">
+           <property name="text">
+            <string>Refracted</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkBoxFileReport_channel3">
+           <property name="text">
+            <string>Generate File Report</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkBoxGraphics_channel3">
+           <property name="text">
+            <string>Generate Graphics</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="channel4">
+     <attribute name="title">
+      <string>Channel 4</string>
+     </attribute>
+     <widget class="QWidget" name="gridLayoutWidget_9">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>941</width>
+        <height>491</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_channel4">
+       <item row="2" column="0">
+        <layout class="QVBoxLayout" name="verticalLayoutBasicCommands_channel4">
+         <item>
+          <widget class="QLabel" name="labelBasicCommands_channel4">
+           <property name="text">
+            <string>Basic Commands</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonInitialSetup_channel4">
+           <property name="text">
+            <string>Initial Setup</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonSafeReset_channel4">
+           <property name="text">
+            <string>Safe Reset</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonStop_channel4">
+           <property name="text">
+            <string>Stop</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayoutBasicControl_channel4">
+           <item>
+            <widget class="QPushButton" name="pushButtonBasicExtended_channel4">
+             <property name="text">
+              <string>Extended</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButtonBasicRefracted_channel4">
+             <property name="text">
+              <string>Refracted</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="3">
+        <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft_channel4">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft2_channel4">
+           <item>
+            <widget class="QLabel" name="labelStartStopSoft_channel4">
+             <property name="text">
+              <string>  Start and Stop Soft</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft3_channel4">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutAccelarationTime_channel4">
+               <item>
+                <widget class="QLabel" name="labelAccelarationTime_channel4">
+                 <property name="text">
+                  <string>Accelaration Time (ms):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditAccelarationTime_channel4"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutAccelarationRate_channel4">
+               <item>
+                <widget class="QLabel" name="labelAccelarationRate_channel4">
+                 <property name="text">
+                  <string>Accelaration Rate (mm/s²):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditAccelarationRate_channel4"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutSpace_channel4"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonUpdateStartStopSoft_channel4">
+           <property name="text">
+            <string>Update</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="0">
+        <widget class="Line" name="line_25">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="Line" name="line_26">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <layout class="QVBoxLayout" name="verticalLayoutLinearActuatorSpecifications_channel4">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayoutLinearActuator_channel4">
+           <item>
+            <widget class="QLabel" name="labelLinearActuatorSpecifications4">
+             <property name="text">
+              <string>Linear Actuator Specifications</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayoutSpecifications_channel4">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutModel_channel4">
+               <item>
+                <widget class="QLabel" name="labelModel_channel4">
+                 <property name="text">
+                  <string>Model:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditModel_channel4"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutStrokeLenght_channel4">
+               <item>
+                <widget class="QLabel" name="labelStrokeLenght_channel4">
+                 <property name="text">
+                  <string>Stroke Lenght (mm):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditStrokeLenght_channel4"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalMaxCurrent_channel4">
+               <item>
+                <widget class="QLabel" name="labelMaxCurrent_channel4">
+                 <property name="text">
+                  <string>Maximum Current (A):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditMaxCurrent_channel4"/>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonUpdateLinearActuatorSpecifications_channel4">
+           <property name="text">
+            <string>Update</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="1" rowspan="3">
+        <widget class="Line" name="line_27">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <layout class="QVBoxLayout" name="verticalLayoutAdvancedCommands_channel4">
+         <item>
+          <widget class="QLabel" name="labelAdvancedCommands_channel4">
+           <property name="text">
+            <string>Advanced Commands</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayoutAdvancedExtended_channel4">
+           <item>
+            <widget class="QLabel" name="labelExtendedAdvanced_channel4">
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="horizontalSliderExtended_channel4">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonExtended_channel4">
+           <property name="text">
+            <string>Extended</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayoutAdvanceddRefracted_channel4">
+           <item>
+            <widget class="QLabel" name="labelRefractedAdvanced_channel4">
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="horizontalSliderRefracted_channel4">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonRefracted_channel4">
+           <property name="text">
+            <string>Refracted</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkBoxFileReport_channel4">
+           <property name="text">
+            <string>Generate File Report</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkBoxGraphics_channel4">
+           <property name="text">
+            <string>Generate Graphics</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="channel5">
+     <attribute name="title">
+      <string>Channel 5</string>
+     </attribute>
+     <widget class="QWidget" name="gridLayoutWidget_10">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>941</width>
+        <height>491</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_channel5">
+       <item row="2" column="0">
+        <layout class="QVBoxLayout" name="verticalLayoutBasicCommands_channel5">
+         <item>
+          <widget class="QLabel" name="labelBasicCommands_channel5">
+           <property name="text">
+            <string>Basic Commands</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonInitialSetup_channel5">
+           <property name="text">
+            <string>Initial Setup</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonSafeReset_channel5">
+           <property name="text">
+            <string>Safe Reset</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonStop_channel5">
+           <property name="text">
+            <string>Stop</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayoutBasicControl_channel5">
+           <item>
+            <widget class="QPushButton" name="pushButtonBasicExtended_channel5">
+             <property name="text">
+              <string>Extended</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButtonBasicRefracted_channel5">
+             <property name="text">
+              <string>Refracted</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="3">
+        <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft_channel5">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft2_channel5">
+           <item>
+            <widget class="QLabel" name="labelStartStopSoft_channel5">
+             <property name="text">
+              <string>  Start and Stop Soft</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft3_channel5">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutAccelarationTime_channel5">
+               <item>
+                <widget class="QLabel" name="labelAccelarationTime_channel5">
+                 <property name="text">
+                  <string>Accelaration Time (ms):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditAccelarationTime_channel5"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutAccelarationRate_channel5">
+               <item>
+                <widget class="QLabel" name="labelAccelarationRate_channel5">
+                 <property name="text">
+                  <string>Accelaration Rate (mm/s²):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditAccelarationRate_channel5"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutSpace_channel5"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonUpdateStartStopSoft_channel5">
+           <property name="text">
+            <string>Update</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="0">
+        <widget class="Line" name="line_28">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="Line" name="line_29">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <layout class="QVBoxLayout" name="verticalLayoutLinearActuatorSpecifications_channel5">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayoutLinearActuator_channel5">
+           <item>
+            <widget class="QLabel" name="labelLinearActuatorSpecifications5">
+             <property name="text">
+              <string>Linear Actuator Specifications</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayoutSpecifications_channel5">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutModel_channel5">
+               <item>
+                <widget class="QLabel" name="labelModel_channel5">
+                 <property name="text">
+                  <string>Model:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditModel_channel5"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutStrokeLenght_channel5">
+               <item>
+                <widget class="QLabel" name="labelStrokeLenght_channel5">
+                 <property name="text">
+                  <string>Stroke Lenght (mm):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditStrokeLenght_channel5"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalMaxCurrent_channel5">
+               <item>
+                <widget class="QLabel" name="labelMaxCurrent_channel5">
+                 <property name="text">
+                  <string>Maximum Current (A):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditMaxCurrent_channel5"/>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonUpdateLinearActuatorSpecifications_channel5">
+           <property name="text">
+            <string>Update</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="1" rowspan="3">
+        <widget class="Line" name="line_30">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <layout class="QVBoxLayout" name="verticalLayoutAdvancedCommands_channel5">
+         <item>
+          <widget class="QLabel" name="labelAdvancedCommands_channel5">
+           <property name="text">
+            <string>Advanced Commands</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayoutAdvancedExtended_channel5">
+           <item>
+            <widget class="QLabel" name="labelExtendedAdvanced_channel5">
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="horizontalSliderExtended_channel5">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonExtended_channel5">
+           <property name="text">
+            <string>Extended</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayoutAdvanceddRefracted_channel5">
+           <item>
+            <widget class="QLabel" name="labelRefractedAdvanced_channel5">
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="horizontalSliderRefracted_channel5">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonRefracted_channel5">
+           <property name="text">
+            <string>Refracted</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkBoxFileReport_channel5">
+           <property name="text">
+            <string>Generate File Report</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkBoxGraphics_channel5">
+           <property name="text">
+            <string>Generate Graphics</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1032</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
