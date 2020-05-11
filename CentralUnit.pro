@@ -22,6 +22,7 @@ SOURCES += \
 
 HEADERS += \
     Channel.h \
+    Utils.h \
     mainwindow.h
 
 FORMS += \

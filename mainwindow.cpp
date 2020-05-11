@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "Utils.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -23,19 +24,10 @@ MainWindow::MainWindow(QWidget *parent)
         readJsonFile();
     }
     setupTab();
-    spiInt();
-    spiEnableSlave(PIN_CHANNEL2);
-    spiSend(0x03);
-    spiSend(0x01);
-    quint8 Rx = spiRead();
-    qDebug()<<Rx;
-    spiDisableSlave(PIN_CHANNEL2);
-
 }
 
 MainWindow::~MainWindow()
 {
-    spiClose();
     delete ui;
 }
 
@@ -74,6 +66,7 @@ void MainWindow::readJsonFile(void)
     foreach (const QJsonValue & _channelJson, _channelsJson){
         Channel* _channel = new Channel(_channelJson.toObject().value("Channel Number").toString().toInt());
         _channel->setModel(_channelJson.toObject().value("Model").toString().toStdString());
+        _channel->setCommunication(_channelJson.toObject().value("Communication").toString().toStdString());
         _channel->setStrokeLenght(_channelJson.toObject().value("Stroke Lenght").toString().toInt());
         _channel->setMaxCurrent(_channelJson.toObject().value("Maximum Current").toString().toDouble());
         _channel->setAccelarationTime(_channelJson.toObject().value("Accelaration Time").toString().toInt());
@@ -94,12 +87,14 @@ void MainWindow::updateJsonFile (void)
     for (Channel* _channel:getListOfChannels()){
         QJsonObject _channelJson;
         _channelJson.insert("Model", QString::fromStdString(_channel->getModel()));
+        _channelJson.insert("Communication", QString::fromStdString(_channel->getCommunication()));
         _channelJson.insert("Stroke Lenght", QString::number(_channel->getStrokeLenght()));
         _channelJson.insert("Maximum Current", QString::number(_channel->getMaxCurrent()));
         _channelJson.insert("Accelaration Time", QString::number(_channel->getAccelarationTime()));
         _channelJson.insert("Accelaration Rate", QString::number(_channel->getAccelarationRate()));
         _channelJson.insert("Channel Number", QString::number(_channel->getChannelNumber()));
         _channelJson.insert("Pulse Rate", QString::number(_channel->getPulseRate()));
+
         channelsJson.push_back(_channelJson);
     }
 
@@ -371,82 +366,5 @@ void MainWindow::on_horizontalSliderRefracted_channel1_valueChanged(int value)
 {
     ui->labelRefractedAdvanced_channel1  ->setText(QString::number(value));
 
-}
-
-void MainWindow::spiInt(void)
-{
-    if (bcm2835_init()) {
-        bcm2835_gpio_fsel(PIN_CHANNEL1, BCM2835_GPIO_FSEL_OUTP);
-        bcm2835_gpio_fsel(PIN_CHANNEL2, BCM2835_GPIO_FSEL_OUTP);
-        bcm2835_gpio_fsel(PIN_CHANNEL3, BCM2835_GPIO_FSEL_OUTP);
-        bcm2835_gpio_fsel(PIN_CHANNEL4, BCM2835_GPIO_FSEL_OUTP);
-        bcm2835_gpio_fsel(PIN_CHANNEL5, BCM2835_GPIO_FSEL_OUTP);
-
-        bcm2835_gpio_write(PIN_CHANNEL1, HIGH);
-        bcm2835_gpio_write(PIN_CHANNEL2, HIGH);
-        bcm2835_gpio_write(PIN_CHANNEL3, HIGH);
-        bcm2835_gpio_write(PIN_CHANNEL4, HIGH);
-        bcm2835_gpio_write(PIN_CHANNEL5, HIGH);
-        if (bcm2835_spi_begin()) {
-            bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_MSBFIRST      );  // The default
-            bcm2835_spi_setDataMode(BCM2835_SPI_MODE0                   );  // The default
-            bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_65536 );  // cdiv = 65536; speed = 3.814 kHz
-            bcm2835_spi_chipSelect(BCM2835_SPI_CS_NONE);                    // Itself control
-            bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS_NONE, LOW);
-
-            bcm2835_gpio_fsel(PIN_CHANNEL1, BCM2835_GPIO_FSEL_OUTP);
-            bcm2835_gpio_fsel(PIN_CHANNEL2, BCM2835_GPIO_FSEL_OUTP);
-            bcm2835_gpio_fsel(PIN_CHANNEL3, BCM2835_GPIO_FSEL_OUTP);
-            bcm2835_gpio_fsel(PIN_CHANNEL4, BCM2835_GPIO_FSEL_OUTP);
-            bcm2835_gpio_fsel(PIN_CHANNEL5, BCM2835_GPIO_FSEL_OUTP);
-
-            bcm2835_gpio_write(PIN_CHANNEL1, HIGH);
-            bcm2835_gpio_write(PIN_CHANNEL2, HIGH);
-            bcm2835_gpio_write(PIN_CHANNEL3, HIGH);
-            bcm2835_gpio_write(PIN_CHANNEL4, HIGH);
-            bcm2835_gpio_write(PIN_CHANNEL5, HIGH);
-        }
-        /*else
-            qDebug()<<"Error1";*/
-    }
-    /*else
-        qDebug()<<"Error2";*/
-
-
-}
-
-void MainWindow::spiSend(quint8 data)
-{
-    bcm2835_spi_write(data);
-}
-
-quint8 MainWindow::spiRead(void)
-{
-    return bcm2835_spi_transfer(0xFF);
-}
-
-void MainWindow::spiEnableSlave(int _channel)
-{
-    bcm2835_gpio_write(_channel, LOW);
-    bcm2835_delayMicroseconds(800); //  Wait 3  clock tickets to complete initialization
-}
-
-void MainWindow::spiDisableSlave(int _channel)
-{
-    bcm2835_gpio_write(_channel, HIGH);
-    bcm2835_delayMicroseconds(200); //  Wait 1  clock tickets to complete
-}
-
-void MainWindow::spiClose(void)
-{
-    bcm2835_spi_end();
-
-    bcm2835_gpio_write(PIN_CHANNEL1, LOW);
-    bcm2835_gpio_write(PIN_CHANNEL2, LOW);
-    bcm2835_gpio_write(PIN_CHANNEL3, LOW);
-    bcm2835_gpio_write(PIN_CHANNEL4, LOW);
-    bcm2835_gpio_write(PIN_CHANNEL5, LOW);
-
-    bcm2835_close();
 }
 

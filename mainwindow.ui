@@ -33,7 +33,7 @@
      <enum>Qt::LeftToRight</enum>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="channel1">
      <property name="styleSheet">
@@ -320,9 +320,23 @@
           </widget>
          </item>
          <item>
+          <widget class="Line" name="line_5">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QCheckBox" name="checkBoxFileReport_channel1">
            <property name="text">
             <string>Generate File Report</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkBoxPwm_channel1">
+           <property name="text">
+            <string>Enable Soft Start and Stio</string>
            </property>
           </widget>
          </item>
@@ -623,9 +637,23 @@
           </widget>
          </item>
          <item>
+          <widget class="Line" name="line_4">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QCheckBox" name="checkBoxFileReport_channel2">
            <property name="text">
             <string>Generate File Report</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkBoxPwm_channel2">
+           <property name="text">
+            <string>PWM Control</string>
            </property>
           </widget>
          </item>
@@ -923,9 +951,23 @@
           </widget>
          </item>
          <item>
+          <widget class="Line" name="line_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QCheckBox" name="checkBoxFileReport_channel3">
            <property name="text">
             <string>Generate File Report</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkBoxPwm_channel5_3">
+           <property name="text">
+            <string>PWM Control</string>
            </property>
           </widget>
          </item>
@@ -1223,9 +1265,23 @@
           </widget>
          </item>
          <item>
+          <widget class="Line" name="line_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QCheckBox" name="checkBoxFileReport_channel4">
            <property name="text">
             <string>Generate File Report</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkBoxPwm_channel5_2">
+           <property name="text">
+            <string>PWM Control</string>
            </property>
           </widget>
          </item>
@@ -1523,9 +1579,23 @@
           </widget>
          </item>
          <item>
+          <widget class="Line" name="line">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QCheckBox" name="checkBoxFileReport_channel5">
            <property name="text">
             <string>Generate File Report</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkBoxPwm_channel5">
+           <property name="text">
+            <string>PWM Control</string>
            </property>
           </widget>
          </item>

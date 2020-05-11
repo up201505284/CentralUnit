@@ -4,15 +4,6 @@
 #include <QMainWindow>
 #include "Channel.h"
 
-#define PIN_CHANNEL1     RPI_BPLUS_GPIO_J8_11
-#define PIN_CHANNEL2     RPI_BPLUS_GPIO_J8_12
-#define PIN_CHANNEL3     RPI_BPLUS_GPIO_J8_24
-#define PIN_CHANNEL4     RPI_BPLUS_GPIO_J8_26
-#define PIN_CHANNEL5     RPI_BPLUS_GPIO_J8_36
-
-#define SPI_COMMAND_READ    0x00
-#define SPI_COMMAND_WRITE   0x01
-
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -42,13 +33,9 @@ public:
     void            setupTab                                                        (void                           );
     void            setupSlider                                                     (void                           );
 
-    // SPI
-    void            spiInt                                                          (void                           );
-    void            spiEnableSlave                                                  (int _channel                   );
-    void            spiDisableSlave                                                 (int _channel                   );
-    void            spiSend                                                         (quint8 data                    );
-    quint8          spiRead                                                         (void                           );
-    void            spiClose                                                        (void                           );
+
+    //  Operation Modes
+    void            setupComunication                                               (int channel                    );
 
 private slots:
     // Update buttons

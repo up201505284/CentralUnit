@@ -10,6 +10,8 @@ Channel::Channel(int _numberChannel)
     setModel            (MODEL_DEFAULT              );
     setChannelNumber    (_numberChannel             );
     setPulseRate        (PULSE_RATE_DEFAULT         );
+    setCommunication    (COMMUNICATION_DEFAULT      );
+    setSoftStartStop    (SOFT_START_STOP_DEFAULT    );
     return;
 }
 
@@ -18,11 +20,14 @@ Channel::~Channel()
 {
     return;
 }
-
 //  "Set" Methods
 void Channel::setModel(string _model)
 {
     model = _model;
+}
+void Channel::setCommunication(string _communication)
+{
+    communication = _communication;
 }
 void Channel::setMaxCurrent(float _maxCurrent)
 {
@@ -50,24 +55,27 @@ void Channel::setPulseRate(int _pulseRate)
 }
 
 //  "Get" Methods
-
-string  Channel::getModel            (void)
+string  Channel::getModel(void)
 {
     return  model;
 }
-float   Channel::getMaxCurrent       (void)
+string Channel::getCommunication(void)
+{
+    return  communication;
+}
+float   Channel::getMaxCurrent(void)
 {
     return  maxCurrent;
 }
-float   Channel::getAccelarationRate (void)
+float   Channel::getAccelarationRate(void)
 {
     return  accelarationRate;
 }
-int     Channel::getChannelNumber   (void)
+int     Channel::getChannelNumber(void)
 {
     return  channelNumber;
 }
-int     Channel::getAccelarationTime (void)
+int     Channel::getAccelarationTime(void)
 {
     return  accelarationTime;
 }
