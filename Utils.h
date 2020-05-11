@@ -3,7 +3,7 @@
 //  Default values
 #define ACCELARATION_TIME_DEFAULT   140
 #define ACCELARATION_RATE_DEFAULT   2.1
-#define MAX_CURRENT_DEFAULT         0
+#define MAX_CURRENT_DvghjEFAULT         0
 #define STROKE_LENGHT_DEFAULT       0
 #define MODEL_DEFAULT               ""
 #define PULSE_RATE_DEFAULT          0
