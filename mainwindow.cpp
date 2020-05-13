@@ -14,16 +14,19 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    if(QFile::exists("./RecordsOfChannels.js")){
-        readJsonFile();
-    }
 
-    else{
+    if(QFile::exists("./RecordsOfChannels.js"))
+        readJsonFile();
+    else {
         initListOfActuators();
         updateJsonFile();
         readJsonFile();
     }
+
     setupTab();
+    spiInt();
+
+
 }
 
 MainWindow::~MainWindow()
@@ -103,6 +106,22 @@ void MainWindow::updateJsonFile (void)
     jsonFile.close();
 }
 
+void MainWindow::checkCommunications (void) {
+    bool controlEnbale[5];
+    controlEnbale[0] = ui->checkBoxPwm_channel1->isChecked();
+    controlEnbale[1] = ui->checkBoxPwm_channel2->isChecked();
+    controlEnbale[2] = ui->checkBoxPwm_channel3->isChecked();
+    controlEnbale[3] = ui->checkBoxPwm_channel4->isChecked();
+    controlEnbale[4] = ui->checkBoxPwm_channel5->isChecked();
+
+    for (Channel* _channel: getListOfChannels()) {
+        if (enableCommunication(_channel->getPin(), _channel->getStrokeLenght(), _channel->getPulseRate(), _channel->getAccelarationRate(), _channel->getAccelarationTime(), controlEnbale[_channel->getChannelNumber()-1]) == 1)
+            _channel->setCommunication("Enable");
+        else
+            _channel->setCommunication("Disable");
+    }
+}
+
 void MainWindow::setupTab(void)
 {
     for(Channel* _channel : getListOfChannels()){
@@ -116,6 +135,10 @@ void MainWindow::setupTab(void)
 
             ui->horizontalSliderExtended_channel1   ->setRange(0, _channel->getStrokeLenght());
             ui->horizontalSliderRefracted_channel1  ->setRange(0, _channel->getStrokeLenght());
+
+            if (!ui->checkBoxPwm_channel1->isChecked()){
+                ui->lineEditAccelarationRate_channel1->set
+            }
 
             setupSlider();
         }
@@ -368,3 +391,260 @@ void MainWindow::on_horizontalSliderRefracted_channel1_valueChanged(int value)
 
 }
 
+
+void MainWindow::on_pushButtonBasicExtended_channel1_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL1);
+    char bufferT [3] ={SPICOMMANDINITIAL(), BASICEXTENDED(), SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 3);
+    spiDisableSlave(PIN_CHANNEL1);
+}
+void MainWindow::on_pushButtonBasicExtended_channel2_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL2);
+    char bufferT [3] ={SPICOMMANDINITIAL(), BASICEXTENDED(), SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 3);
+    spiDisableSlave(PIN_CHANNEL2);
+}
+void MainWindow::on_pushButtonBasicExtended_channel3_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL3);
+    char bufferT [3] ={SPICOMMANDINITIAL(), BASICEXTENDED(), SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 3);
+    spiDisableSlave(PIN_CHANNEL3);
+}
+void MainWindow::on_pushButtonBasicExtended_channel4_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL4);
+    char bufferT [3] ={SPICOMMANDINITIAL(), BASICEXTENDED(), SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 3);
+    spiDisableSlave(PIN_CHANNEL4);
+}
+void MainWindow::on_pushButtonBasicExtended_channel5_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL5);
+    bcm2835_spi_transfer(BASICEXTENDED());
+    spiDisableSlave(PIN_CHANNEL5);
+}
+
+void MainWindow::on_pushButtonBasicRefracted_channel1_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL1);
+    char bufferT [3] ={SPICOMMANDINITIAL(), BASICREFRACTED(), SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 3);
+    spiDisableSlave(PIN_CHANNEL1);
+}
+void MainWindow::on_pushButtonBasicRefracted_channel2_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL2);
+    char bufferT [3] ={SPICOMMANDINITIAL(), BASICREFRACTED(), SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 3);
+    spiDisableSlave(PIN_CHANNEL2);
+}
+void MainWindow::on_pushButtonBasicRefracted_channel3_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL3);
+    char bufferT [3] ={SPICOMMANDINITIAL(), BASICREFRACTED(), SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 3);
+    spiDisableSlave(PIN_CHANNEL3);
+}
+void MainWindow::on_pushButtonBasicRefracted_channel4_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL4);
+    char bufferT [3] ={SPICOMMANDINITIAL(), BASICREFRACTED(), SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 3);
+    spiDisableSlave(PIN_CHANNEL4);
+}
+
+void MainWindow::on_pushButtonBasicRefracted_channel5_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL5);
+    char bufferT [3] ={SPICOMMANDINITIAL(), BASICREFRACTED(), SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 3);
+    spiDisableSlave(PIN_CHANNEL5);
+}
+
+void MainWindow::on_pushButtonStop_channel1_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL5);
+    char bufferT [3] ={SPICOMMANDINITIAL(), STOP(), SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 3);
+    spiDisableSlave(PIN_CHANNEL5);
+}
+void MainWindow::on_pushButtonStop_channel2_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL5);
+    char bufferT [3] ={SPICOMMANDINITIAL(), STOP(), SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 3);
+    spiDisableSlave(PIN_CHANNEL5);
+}
+void MainWindow::on_pushButtonStop_channel3_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL5);
+    char bufferT [3] ={SPICOMMANDINITIAL(), STOP(), SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 3);
+    spiDisableSlave(PIN_CHANNEL5);
+}
+void MainWindow::on_pushButtonStop_channel4_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL5);
+    char bufferT [3] ={SPICOMMANDINITIAL(), STOP(), SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 3);
+    spiDisableSlave(PIN_CHANNEL5);
+}
+void MainWindow::on_pushButtonStop_channel5_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL5);
+    char bufferT [3] ={SPICOMMANDINITIAL(), STOP(), SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 3);
+    spiDisableSlave(PIN_CHANNEL5);
+}
+
+void MainWindow::on_pushButtonSafeReset_channel1_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL1);
+    char bufferT [3] ={SPICOMMANDINITIAL(), SAFERESET(), SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 3);
+    spiDisableSlave(PIN_CHANNEL1);
+}
+void MainWindow::on_pushButtonSafeReset_channel2_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL2);
+    char bufferT [3] ={SPICOMMANDINITIAL(), SAFERESET(), SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 3);
+    spiDisableSlave(PIN_CHANNEL2);
+}
+void MainWindow::on_pushButtonSafeReset_channel3_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL3);
+    char bufferT [3] ={SPICOMMANDINITIAL(), SAFERESET(), SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 3);
+    spiDisableSlave(PIN_CHANNEL3);
+}
+void MainWindow::on_pushButtonSafeReset_channel4_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL4);
+    char bufferT [3] ={SPICOMMANDINITIAL(), SAFERESET(), SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 3);
+    spiDisableSlave(PIN_CHANNEL4);
+}
+void MainWindow::on_pushButtonSafeReset_channel5_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL5);
+    char bufferT [3] ={SPICOMMANDINITIAL(), SAFERESET(), SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 3);
+    spiDisableSlave(PIN_CHANNEL5);
+}
+
+void MainWindow::on_pushButtonInitialSetup_channel1_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL1);
+    char bufferT [3] ={SPICOMMANDINITIAL(), INITIALSETUP(), SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 3);
+    spiDisableSlave(PIN_CHANNEL1);
+}
+void MainWindow::on_pushButtonInitialSetup_channel2_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL2);
+    char bufferT [3] ={SPICOMMANDINITIAL(), INITIALSETUP(), SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 3);
+    spiDisableSlave(PIN_CHANNEL2);
+}
+
+void MainWindow::on_pushButtonInitialSetup_channel3_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL3);
+    char bufferT [3] ={SPICOMMANDINITIAL(), INITIALSETUP(), SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 3);
+    spiDisableSlave(PIN_CHANNEL3);
+}
+void MainWindow::on_pushButtonInitialSetup_channel4_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL4);
+    char bufferT [3] ={SPICOMMANDINITIAL(), INITIALSETUP(), SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 3);
+    spiDisableSlave(PIN_CHANNEL4);
+}
+void MainWindow::on_pushButtonInitialSetup_channel5_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL5);
+    char bufferT [3] ={SPICOMMANDINITIAL(), INITIALSETUP(), SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 3);
+    spiDisableSlave(PIN_CHANNEL5);
+}
+
+void MainWindow::on_pushButtonExtended_channel1_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL1);
+    char bufferT [4] ={SPICOMMANDINITIAL(), ADVANCEDEXTENDED(), (char) ui->horizontalSliderExtended_channel1->value(),SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 4);
+    spiDisableSlave(PIN_CHANNEL1);
+}
+void MainWindow::on_pushButtonExtended_channel2_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL2);
+    char bufferT [4] ={SPICOMMANDINITIAL(), ADVANCEDEXTENDED(), (char) ui->horizontalSliderExtended_channel2->value(),SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 2);
+    spiDisableSlave(PIN_CHANNEL1);
+}
+void MainWindow::on_pushButtonExtended_channel3_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL3);
+    char bufferT [4] ={SPICOMMANDINITIAL(), ADVANCEDEXTENDED(), (char) ui->horizontalSliderExtended_channel3->value(),SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 4);
+    spiDisableSlave(PIN_CHANNEL3);
+}
+void MainWindow::on_pushButtonExtended_channel4_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL4);
+    char bufferT [4] ={SPICOMMANDINITIAL(), ADVANCEDEXTENDED(), (char) ui->horizontalSliderExtended_channel4->value(),SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 4);
+    spiDisableSlave(PIN_CHANNEL4);
+}
+void MainWindow::on_pushButtonExtended_channel5_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL5);
+    char bufferT [4] ={SPICOMMANDINITIAL(), ADVANCEDEXTENDED(), (char) ui->horizontalSliderExtended_channel5->value(),SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 4);
+    spiDisableSlave(PIN_CHANNEL5);
+}
+
+void MainWindow::on_pushButtonRefracted_channel1_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL1);
+    char bufferT [4] ={SPICOMMANDINITIAL(), ADVANCEDEXTENDED(), (char) ui->horizontalSliderRefracted_channel1->value(),SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 4);
+    spiDisableSlave(PIN_CHANNEL1);
+}
+
+void MainWindow::on_pushButtonRefracted_channel2_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL2);
+    char bufferT [4] ={SPICOMMANDINITIAL(), ADVANCEDEXTENDED(), (char) ui->horizontalSliderRefracted_channel2->value(),SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 4);
+    spiDisableSlave(PIN_CHANNEL2);
+}
+
+void MainWindow::on_pushButtonRefracted_channel3_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL3);
+    char bufferT [4] ={SPICOMMANDINITIAL(), ADVANCEDEXTENDED(), (char) ui->horizontalSliderRefracted_channel3->value(),SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 4);
+    spiDisableSlave(PIN_CHANNEL3);
+}
+
+void MainWindow::on_pushButtonRefracted_channel4_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL4);
+    char bufferT [4] ={SPICOMMANDINITIAL(), ADVANCEDEXTENDED(), (char) ui->horizontalSliderRefracted_channel4->value(),SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 4);
+    spiDisableSlave(PIN_CHANNEL4);
+}
+
+void MainWindow::on_pushButtonRefracted_channel5_clicked()
+{
+    spiEnableSlave(PIN_CHANNEL5);
+    char bufferT [4] ={SPICOMMANDINITIAL(), ADVANCEDEXTENDED(), (char) ui->horizontalSliderRefracted_channel5->value(),SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 4);
+    spiDisableSlave(PIN_CHANNEL5);
+}

@@ -15,7 +15,8 @@ using namespace std;
 #define MODEL_DEFAULT               ""
 #define PULSE_RATE_DEFAULT          0
 #define COMMUNICATION_DEFAULT       "Disable"
-#define SOFT_START_STOP_DEFAULT     "Disable"
+#define SOFT_START_STOP_DEFAULT     0
+#define PIN_DEFAULT                 0
 
 //  Slave pins
 #define PIN_CHANNEL1                RPI_BPLUS_GPIO_J8_11
@@ -47,13 +48,14 @@ class Channel
 private:
     string  model           ; //  TA31
     string  communication   ; //  Enable/Disable
-    string  softStartStop   ; //  Enable/Disable
     float   maxCurrent      ; //  4.5A
-    float   accelarationRate; //  4.1mm/s²
+    int   accelarationRate; //  4.1mm/s²
     int     channelNumber   ; //  2
     int     accelarationTime; //  1400s
     int     strokeLenght    ; //  40mm
     int     pulseRate       ; //  123imp/mm
+    int     softStartStop   ; //  Enable/Disable
+    int     pin             ; // PIN_CHANNEL1
 
 
 public:
@@ -65,26 +67,29 @@ public:
     //  "Set" Methods
     void setModel           (string _model          );
     void setCommunication   (string _communication  );
-    void setSoftStartStop   (string _softStartStop  );
     void setMaxCurrent      (float _maxCurrent      );
-    void setAccelarationRate(float _accelarationRate);
+    void setAccelarationRate(int _accelarationRate);
     void setChannelNumber   (int _channelNumber     );
     void setAccelarationTime(int _accelarationTime  );
     void setStrokeLenght    (int _strokeLenght      );
     void setPulseRate       (int _pulseRate         );
+    void setSoftStartStop   (int _softStartStop     );
+    void setPin             (int _pin               );
 
 
     //  "Get" Methods
 
     string  getModel            (void);
     string  getCommunication    (void);
-    string  getSoftStartStop    (void);
     float   getMaxCurrent       (void);
-    float   getAccelarationRate (void);
+    int     getAccelarationRate (void);
     int     getChannelNumber    (void);
     int     getAccelarationTime (void);
     int     getStrokeLenght     (void);
     int     getPulseRate        (void);
+    int     getSoftStartStop    (void);
+    int     getPin              (void);
+
 
 };
 

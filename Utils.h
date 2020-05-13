@@ -1,23 +1,8 @@
 #include <bcm2835.h>
+#include <QDebug>
 
-//  Default values
-#define ACCELARATION_TIME_DEFAULT   140
-#define ACCELARATION_RATE_DEFAULT   2.1
-#define MAX_CURRENT_DvghjEFAULT         0
-#define STROKE_LENGHT_DEFAULT       0
-#define MODEL_DEFAULT               ""
-#define PULSE_RATE_DEFAULT          0
-#define COMMUNICATION_DEFAULT       "Disable"
-
-//  Slave pins
-#define PIN_CHANNEL1                RPI_BPLUS_GPIO_J8_11
-#define PIN_CHANNEL2                RPI_BPLUS_GPIO_J8_12
-#define PIN_CHANNEL3                RPI_BPLUS_GPIO_J8_24
-#define PIN_CHANNEL4                RPI_BPLUS_GPIO_J8_26
-#define PIN_CHANNEL5                RPI_BPLUS_GPIO_J8_36
 
 //  SPI Commands TX (from central init to control unit)
-#define DISCONNECTED()              0x00
 #define INITIALSETUP()              0x01
 #define SAFERESET()                 0x02
 #define BASICEXTENDED()             0x03
@@ -25,27 +10,19 @@
 #define ADVANCEDEXTENDED()          0x05
 #define ADVANCEDREFRACTED()         0x06
 #define STOP()                      0x07
-#define SUCESS()                    0x08
-#define SENDING_SHIFT()             0x09
-#define SETUPCOMMUNICATION()        0x10
-#define SENDINGSTROKELENGHT()       0x11
-#define SENDINGPULSERATE()          0x12
-#define SENDINGSOFTSTARTSTOP()      0x13
-#define SENDINGACCELRATIONRATE()    0x14
-#define SENDINGACCELRATIONTIME()    0x15
-#define HELLO()                     0x16
+#define ENABLESPI()                 0x08
+#define DISABLESPI()                0x09
+#define SPICOMMANDINITIAL()         0xF0
+#define SPICOMMANDFINISHED()        0xF1
+#define SPIREADWITHSUCESS()         0xF2
 
-//  SPI Communication
-void    spiInt          (void           );
-void    spiEnableSlave  (int _channel   );
-void    spiDisableSlave (int _channel   );
-void    spiSend         (uint8_t data   );
-uint8_t spiRead         (void           );
-void    spiClose        (void           );
 
-//  SPI Commands
-int     checkCommunication  (int channel);
-int    setupCommunication  (int channel);
+//  Slave pins
+#define PIN_CHANNEL1                RPI_BPLUS_GPIO_J8_11
+#define PIN_CHANNEL2                RPI_BPLUS_GPIO_J8_12
+#define PIN_CHANNEL3                RPI_BPLUS_GPIO_J8_24
+#define PIN_CHANNEL4                RPI_BPLUS_GPIO_J8_26
+#define PIN_CHANNEL5                RPI_BPLUS_GPIO_J8_36
 
 void spiInt(void)
 {
@@ -90,14 +67,6 @@ void spiInt(void)
 
 }
 
-void spiSend(uint8_t data)
-{
-    bcm2835_spi_write(data);
-}
-uint8_t spiRead(void)
-{
-    return bcm2835_spi_transfer(0xFF);
-}
 void spiEnableSlave(int _channel)
 {
     bcm2835_gpio_write(_channel, LOW);
@@ -121,53 +90,24 @@ void spiClose(void)
     bcm2835_close();
 }
 
-int checkCommunication(int channel) {
+int disableCommunication(int channel) {
+
     spiEnableSlave(channel);
-    spiSend(HELLO());
-    if (spiRead() != HELLO()) {
-        spiDisableSlave(channel);
-        return -1; //  Error
-    }
-    else {
-        spiDisableSlave(channel);
-        return 1;
-    }
+    char bufferR [3] = {SPICOMMANDINITIAL(), DISABLESPI(), SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferR, 3);
+    spiDisableSlave(channel);
+    return bufferR[2];
 }
 
-int setupCommunication(int channel, uint8_t strokeLenght, uint8_t pulseRate, uint8_t accelarationRate, uint8_t accelarationTime, uint8_t enableSoftStartStop) {
-    if (checkCommunication(channel) != 1)
-        return -1;
-
+int enableCommunication(int channel, uint8_t strokeLenght, uint8_t pulseRate, uint8_t accelarationRate, uint8_t accelarationTime, uint8_t enableSoftStartStop) {
     spiEnableSlave(channel);
-
-    spiSend(SETUPCOMMUNICATION());
-    if (spiRead() != SETUPCOMMUNICATION())
-        return -2;
-
-    spiSend(strokeLenght);
-    if (spiRead() != strokeLenght)
-        return  -3;
-
-    spiSend(pulseRate);
-    if (spiRead() != strokeLenght)
-        return  -4;
-
-    spiSend(accelarationRate);
-    if (spiRead() != strokeLenght)
-        return  -5;
-
-    spiSend(accelarationTime);
-    if (spiRead() != strokeLenght)
-        return  -6;
-
-    spiSend(enableSoftStartStop);
-    if (spiRead() != strokeLenght)
-        return  -6;
-
-    spiSend(DISCONNECTED());
-    if (spiRead() != strokeLenght)
-        return  -7;
-
+    char bufferT [8] ={SPICOMMANDINITIAL(), ENABLESPI(), strokeLenght, pulseRate, accelarationRate, accelarationTime, enableSoftStartStop, SPICOMMANDFINISHED()};
+    bcm2835_spi_transfern(bufferT, 8);
     spiDisableSlave(channel);
+    for (int i=0; i<8;i++) {
+        if (bufferT[i] != SPIREADWITHSUCESS())
+            return -1;
+    }
     return 1;
 }
+

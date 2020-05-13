@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.10.0, 2020-05-11T19:57:19. -->
+<!-- Written by QtCreator 4.10.0, 2020-05-13T01:55:06. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -344,13 +344,12 @@
     <value type="int" key="PE.EnvironmentAspect.Base">1</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName"></value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">CentralUnit (on Raspberry Pi)</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">RemoteLinuxRunConfiguration:/home/anabela/CentralUnit/CentralUnit.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">CentralUnit (on Raspberry Pi)2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">RemoteLinuxRunConfiguration:/home/anabela/Documentos/TESE/CentralUnit/CentralUnit/CentralUnit.pro</value>
     <value type="int" key="RemoteLinux.EnvironmentAspect.Version">1</value>
     <value type="QString" key="RemoteLinux.RunConfig.AlternateRemoteExecutable"></value>
     <value type="bool" key="RemoteLinux.RunConfig.UseAlternateRemoteExecutable">false</value>
-    <value type="QString" key="RunConfiguration.Arguments">-platform xcb
-</value>
+    <value type="QString" key="RunConfiguration.Arguments">-platform xcb</value>
     <value type="uint" key="RunConfiguration.QmlDebugServerPort">3768</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
@@ -361,7 +360,7 @@
     <value type="bool" key="RunConfiguration.UseX11Forwarding">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory"></value>
     <value type="QString" key="RunConfiguration.WorkingDirectory.default"></value>
-    <value type="QString" key="RunConfiguration.X11Forwarding">:1.0</value>
+    <value type="QString" key="RunConfiguration.X11Forwarding">:1</value>
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>

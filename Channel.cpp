@@ -12,6 +12,18 @@ Channel::Channel(int _numberChannel)
     setPulseRate        (PULSE_RATE_DEFAULT         );
     setCommunication    (COMMUNICATION_DEFAULT      );
     setSoftStartStop    (SOFT_START_STOP_DEFAULT    );
+
+    if (_numberChannel == 1)
+       setPin(PIN_CHANNEL1);
+    else if (_numberChannel == 2)
+        setPin(PIN_CHANNEL2);
+    else if (_numberChannel == 3)
+        setPin(PIN_CHANNEL3);
+    else if (_numberChannel == 4)
+        setPin(PIN_CHANNEL4);
+    else if (_numberChannel == 5)
+        setPin(PIN_CHANNEL5);
+
     return;
 }
 
@@ -33,7 +45,7 @@ void Channel::setMaxCurrent(float _maxCurrent)
 {
     maxCurrent = _maxCurrent;
 }
-void Channel::setAccelarationRate(float _accelarationRate)
+void Channel::setAccelarationRate(int _accelarationRate)
 {
     accelarationRate = _accelarationRate;
 }
@@ -53,6 +65,14 @@ void Channel::setPulseRate(int _pulseRate)
 {
     pulseRate = _pulseRate;
 }
+void Channel::setSoftStartStop(int _softStartStop)
+{
+    softStartStop = _softStartStop;
+}
+void Channel::setPin(int _pin)
+{
+    pin = _pin;
+}
 
 //  "Get" Methods
 string  Channel::getModel(void)
@@ -67,7 +87,7 @@ float   Channel::getMaxCurrent(void)
 {
     return  maxCurrent;
 }
-float   Channel::getAccelarationRate(void)
+int   Channel::getAccelarationRate(void)
 {
     return  accelarationRate;
 }
@@ -86,4 +106,12 @@ int Channel::getStrokeLenght(void)
 int Channel::getPulseRate(void)
 {
     return  pulseRate;
+}
+int Channel::getSoftStartStop(void)
+{
+    return softStartStop;
+}
+int Channel::getPin(void)
+{
+    return pin;
 }

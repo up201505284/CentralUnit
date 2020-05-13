@@ -33,7 +33,7 @@
      <enum>Qt::LeftToRight</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="channel1">
      <property name="styleSheet">
@@ -72,7 +72,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton1">
+          <widget class="QPushButton" name="pushButtonSafeReset_channel1">
            <property name="text">
             <string>Safe Reset</string>
            </property>
@@ -336,7 +336,7 @@
          <item>
           <widget class="QCheckBox" name="checkBoxPwm_channel1">
            <property name="text">
-            <string>Enable Soft Start and Stio</string>
+            <string>Enable Soft Start and Stop</string>
            </property>
           </widget>
          </item>
@@ -412,7 +412,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton">
+            <widget class="QPushButton" name="pushButtonBasicRefracted_channel2">
              <property name="text">
               <string>Refracted</string>
              </property>
@@ -653,7 +653,7 @@
          <item>
           <widget class="QCheckBox" name="checkBoxPwm_channel2">
            <property name="text">
-            <string>PWM Control</string>
+            <string>Enable Soft Start and Stop</string>
            </property>
           </widget>
          </item>
@@ -965,9 +965,9 @@
           </widget>
          </item>
          <item>
-          <widget class="QCheckBox" name="checkBoxPwm_channel5_3">
+          <widget class="QCheckBox" name="checkBoxPwm_channel3">
            <property name="text">
-            <string>PWM Control</string>
+            <string>Enable Soft Start and Stop</string>
            </property>
           </widget>
          </item>
@@ -1279,9 +1279,9 @@
           </widget>
          </item>
          <item>
-          <widget class="QCheckBox" name="checkBoxPwm_channel5_2">
+          <widget class="QCheckBox" name="checkBoxPwm_channel4">
            <property name="text">
-            <string>PWM Control</string>
+            <string>Enable Soft Start and Stop</string>
            </property>
           </widget>
          </item>
@@ -1595,7 +1595,7 @@
          <item>
           <widget class="QCheckBox" name="checkBoxPwm_channel5">
            <property name="text">
-            <string>PWM Control</string>
+            <string>Enable Soft Start and Stop</string>
            </property>
           </widget>
          </item>
