@@ -32,6 +32,7 @@ Channel::~Channel()
 {
     return;
 }
+
 //  "Set" Methods
 void Channel::setModel(string _model)
 {
