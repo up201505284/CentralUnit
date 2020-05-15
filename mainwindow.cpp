@@ -916,14 +916,8 @@ void MainWindow::on_checkBoxPwm_channel1_stateChanged(int arg1)
             pwmControl = 0;
         else
             pwmControl = 1;
-
-        if (_channel->getChannelNumber() == 1 ) {
-            if (enableCommunication(_channel->getPin(), _channel->getStrokeLenght(), _channel->getPulseRate(), _channel->getAccelarationRate(), _channel->getAccelarationTime(), pwmControl)  == 1)
-                _channel->setCommunication("Enable");
-            else
-                _channel->setCommunication("Disable");
-        }
     }
+    restartCommunication();
 }
 void MainWindow::on_checkBoxPwm_channel2_stateChanged(int arg1)
 {
@@ -960,14 +954,9 @@ void MainWindow::on_checkBoxPwm_channel3_stateChanged(int arg1)
             pwmControl = 0;
         else
             pwmControl = 1;
-
-        if (_channel->getChannelNumber() == 3 ) {
-            if (enableCommunication(_channel->getPin(), _channel->getStrokeLenght(), _channel->getPulseRate(), _channel->getAccelarationRate(), _channel->getAccelarationTime(), pwmControl)  == 1)
-                _channel->setCommunication("Enable");
-            else
-                _channel->setCommunication("Disable");
-        }
     }
+
+    restartCommunication();
 }
 void MainWindow::on_checkBoxPwm_channel4_stateChanged(int arg1)
 {
