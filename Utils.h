@@ -5,9 +5,9 @@
 //  Slave pins
 #define PIN_CHANNEL1                RPI_BPLUS_GPIO_J8_11
 #define PIN_CHANNEL2                RPI_BPLUS_GPIO_J8_12
-#define PIN_CHANNEL3                RPI_BPLUS_GPIO_J8_24
-#define PIN_CHANNEL4                RPI_BPLUS_GPIO_J8_26
-#define PIN_CHANNEL5                RPI_BPLUS_GPIO_J8_36
+#define PIN_CHANNEL3                RPI_BPLUS_GPIO_J8_13
+#define PIN_CHANNEL4                RPI_BPLUS_GPIO_J8_15
+#define PIN_CHANNEL5                RPI_BPLUS_GPIO_J8_16
 
 // Json File
 #define JSON_FILE_NAME              "RecordsOfChannels.js"
@@ -106,7 +106,7 @@ int disableCommunication(int channel) {
     bcm2835_spi_transfern(bufferR, SIZE_BUFFER_DISABLE_SPI);
 
     spiDisableSlave(channel);
-
+    qDebug()<<(int)bufferR[PULSE_RATE_DISABLE];
 
     return bufferR[PULSE_RATE_DISABLE];
 }

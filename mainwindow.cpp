@@ -77,7 +77,7 @@ void MainWindow::readJsonFile(void)
         _channel->setStrokeLenght       (_channelJson.toObject().value("Stroke Lenght"      ).toString().toInt()        );
         _channel->setMaxCurrent         (_channelJson.toObject().value("Maximum Current"    ).toString().toDouble()     );
         _channel->setAccelarationTime   (_channelJson.toObject().value("Accelaration Time"  ).toString().toInt()        );
-        _channel->setAccelarationRate   (_channelJson.toObject().value("Accelaration Rate"  ).toString().toDouble()     );
+        _channel->setAccelarationRate   (_channelJson.toObject().value("Accelaration Rate"  ).toString().toInt()        );
         _channel->setPulseRate          (_channelJson.toObject().value("Pulse Rate"         ).toString().toInt()        );
         _channel->setPin                (_channelJson.toObject().value("Pin"                ).toString().toInt()        );
 
@@ -916,7 +916,7 @@ void MainWindow::on_checkBoxPwm_channel1_stateChanged(int arg1)
             pwmControl = 0;
         else
             pwmControl = 1;
-    }
+   }
     restartCommunication();
 }
 void MainWindow::on_checkBoxPwm_channel2_stateChanged(int arg1)
