@@ -1,9 +1,8 @@
 #include "Channel.h"
 
 //  Constructor
-Channel::Channel(int _numberChannel)
+Channel::Channel(uint8_t _numberChannel)
 {
-    setAccelarationRate (ACCELARATION_RATE_DEFAULT  );
     setAccelarationTime (ACCELARATION_TIME_DEFAULT  );
     setStrokeLenght     (STROKE_LENGHT_DEFAULT      );
     setMaxCurrent       (MAX_CURRENT_DEFAULT        );
@@ -38,45 +37,49 @@ void Channel::setModel(string _model)
 {
     model = _model;
 }
+
 void Channel::setCommunication(string _communication)
 {
     communication = _communication;
 }
+
 void Channel::setMaxCurrent(float _maxCurrent)
 {
     maxCurrent = _maxCurrent;
 }
-void Channel::setAccelarationRate(int _accelarationRate)
-{
-    accelarationRate = _accelarationRate;
-}
-void Channel::setChannelNumber(int _channelNumber)
+
+void Channel::setChannelNumber(uint8_t _channelNumber)
 {
     channelNumber = _channelNumber;
 }
-void Channel::setAccelarationTime(int _accelarationTime)
+
+void Channel::setAccelarationTime(uint16_t _accelarationTime)
 {
     accelarationTime = _accelarationTime;
 }
-void Channel::setStrokeLenght(int _strokeLenght)
+
+void Channel::setStrokeLenght(uint16_t _strokeLenght)
 {
     strokeLenght = _strokeLenght;
 }
-void Channel::setPulseRate(int _pulseRate)
+
+void Channel::setPulseRate(uint8_t _pulseRate)
 {
     pulseRate = _pulseRate;
 }
-void Channel::setSoftStartStop(int _softStartStop)
+
+void Channel::setSoftStartStop(uint8_t _softStartStop)
 {
     softStartStop = _softStartStop;
 }
-void Channel::setPin(int _pin)
+
+void Channel::setPin(uint8_t _pin)
 {
     pin = _pin;
 }
 
 //  "Get" Methods
-string  Channel::getModel(void)
+string Channel::getModel(void)
 {
     return  model;
 }
@@ -84,35 +87,32 @@ string Channel::getCommunication(void)
 {
     return  communication;
 }
-float   Channel::getMaxCurrent(void)
+float Channel::getMaxCurrent(void)
 {
     return  maxCurrent;
 }
-int   Channel::getAccelarationRate(void)
-{
-    return  accelarationRate;
-}
-int     Channel::getChannelNumber(void)
+
+uint8_t Channel::getChannelNumber(void)
 {
     return  channelNumber;
 }
-int     Channel::getAccelarationTime(void)
+uint16_t Channel::getAccelarationTime(void)
 {
     return  accelarationTime;
 }
-int Channel::getStrokeLenght(void)
+uint16_t Channel::getStrokeLenght(void)
 {
     return  strokeLenght;
 }
-int Channel::getPulseRate(void)
+uint8_t Channel::getPulseRate(void)
 {
     return  pulseRate;
 }
-int Channel::getSoftStartStop(void)
+uint8_t Channel::getSoftStartStop(void)
 {
     return softStartStop;
 }
-int Channel::getPin(void)
+uint8_t Channel::getPin(void)
 {
     return pin;
 }

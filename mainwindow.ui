@@ -33,7 +33,7 @@
      <enum>Qt::LeftToRight</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="channel1">
      <property name="styleSheet">
@@ -138,14 +138,18 @@
              <item>
               <layout class="QHBoxLayout" name="horizontalLayoutAccelarationRate_channel1">
                <item>
-                <widget class="QLabel" name="labelAccelarationRate_channel1">
+                <widget class="QLabel" name="labelPulseRate_channel1">
                  <property name="text">
-                  <string>Accelaration Rate (mm/s²):</string>
+                  <string>Pulse Rate (imp/mm):</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLineEdit" name="lineEditAccelarationRate_channel1"/>
+                <widget class="QLineEdit" name="linePulseRate_channel1">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>
@@ -455,14 +459,18 @@
              <item>
               <layout class="QHBoxLayout" name="horizontalLayoutAccelarationRate_channel2">
                <item>
-                <widget class="QLabel" name="labelAccelarationRate_channel2">
+                <widget class="QLabel" name="labelPulseRate_channel2">
                  <property name="text">
-                  <string>Accelaration Rate (mm/s²):</string>
+                  <string>Pulse Rate (imp/mm):</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLineEdit" name="lineEditAccelarationRate_channel2"/>
+                <widget class="QLineEdit" name="linePulseRate_channel2">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>
@@ -769,14 +777,18 @@
              <item>
               <layout class="QHBoxLayout" name="horizontalLayoutAccelarationRate_channel3">
                <item>
-                <widget class="QLabel" name="labelAccelarationRate_channel3">
+                <widget class="QLabel" name="labelPulseRate_channel3">
                  <property name="text">
-                  <string>Accelaration Rate (mm/s²):</string>
+                  <string>Pulse Rate (imp/mm):</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLineEdit" name="lineEditAccelarationRate_channel3"/>
+                <widget class="QLineEdit" name="linePulseRate_channel3">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>
@@ -1083,14 +1095,18 @@
              <item>
               <layout class="QHBoxLayout" name="horizontalLayoutAccelarationRate_channel4">
                <item>
-                <widget class="QLabel" name="labelAccelarationRate_channel4">
+                <widget class="QLabel" name="labelPulseRate_channel4">
                  <property name="text">
-                  <string>Accelaration Rate (mm/s²):</string>
+                  <string>Pulse Rate (imp/mm):</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLineEdit" name="lineEditAccelarationRate_channel4"/>
+                <widget class="QLineEdit" name="linePulseRate_channel4">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>
@@ -1397,14 +1413,18 @@
              <item>
               <layout class="QHBoxLayout" name="horizontalLayoutAccelarationRate_channel5">
                <item>
-                <widget class="QLabel" name="labelAccelarationRate_channel5">
+                <widget class="QLabel" name="labelPulseRate_channel5">
                  <property name="text">
-                  <string>Accelaration Rate (mm/s²):</string>
+                  <string>Pulse Rate (imp/mm):</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLineEdit" name="lineEditAccelarationRate_channel5"/>
+                <widget class="QLineEdit" name="linePulseRate_channel5">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>

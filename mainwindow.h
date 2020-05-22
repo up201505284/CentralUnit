@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include "Channel.h"
 
+#define JSON_FILE_NAME              "RecordsOfChannels.js"
+#define MAX_NUMBER_CHANNELS         5
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -25,17 +27,17 @@ class MainWindow : public QMainWindow
        QList<Channel*> getListOfChannels   (void);
 
        //  Init methods
-       void    initListOfActuators  (void);
-       void    checkCommunications  (void);
-        void    restartCommunication(void);
+       void   initListOfActuators  (void);
+       void   checkCommunications  (void);
+       void   restartCommunication(void);
 
        //  Json File
        void    readJsonFile    (void);
        void    updateJsonFile  (void);
 
        //  Setup widgests
-       void    setupTab    (void);
-       void    setupSlider (void);
+       void    setupTab             (void);
+       void    checkSoftStartStop   (void);
 
 
     private slots:
@@ -117,6 +119,7 @@ class MainWindow : public QMainWindow
        void on_checkBoxPwm_channel4_stateChanged            (int arg1);
        void on_checkBoxPwm_channel5_stateChanged            (int arg1);
 
+       //  Check which channel is active
        void on_tabChannel_currentChanged(int index);
 
 private:
