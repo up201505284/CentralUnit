@@ -3,45 +3,59 @@
 
 
 //  Slave pins
-#define PIN_CHANNEL1                (uint8_t)   RPI_BPLUS_GPIO_J8_11
-#define PIN_CHANNEL2                (uint8_t)   RPI_BPLUS_GPIO_J8_12
-#define PIN_CHANNEL3                (uint8_t)   RPI_BPLUS_GPIO_J8_13
-#define PIN_CHANNEL4                (uint8_t)   RPI_BPLUS_GPIO_J8_15
-#define PIN_CHANNEL5                (uint8_t)   RPI_BPLUS_GPIO_J8_16
-
+#define PIN_CHANNEL1                    (uint8_t)   RPI_BPLUS_GPIO_J8_12
+#define PIN_CHANNEL2                    (uint8_t)   RPI_BPLUS_GPIO_J8_13
+#define PIN_CHANNEL3                    (uint8_t)   RPI_BPLUS_GPIO_J8_15
+#define PIN_CHANNEL4                    (uint8_t)   RPI_BPLUS_GPIO_J8_16
+#define PIN_CHANNEL5                    (uint8_t)   RPI_BPLUS_GPIO_J8_18
 
 
 //  SPI Commands
-#define INITIALSETUP()              (uint8_t)   0x01
-#define SAFERESET()                 (uint8_t)   0x02
-#define BASICEXTENDED()             (uint8_t)   0x03
-#define BASICREFRACTED()            (uint8_t)   0X04
-#define ADVANCEDEXTENDED()          (uint8_t)   0x05
-#define ADVANCEDREFRACTED()         (uint8_t)   0x06
-#define STOP()                      (uint8_t)   0x07
-#define ENABLESPI()                 (uint8_t)   0x08
-#define DISABLESPI()                (uint8_t)   0x09
-#define UPDATE()                    (uint8_t)   0x0A
-#define SPICOMMANDINITIAL()         (uint8_t)   0xF0
-#define SPICOMMANDFINISHED()        (uint8_t)   0xF1
-#define SPIREADWITHSUCESS()         (uint8_t)   0xF2
+#define ENABLE()                        (uint8_t)   0x01
+#define DISABLE()                       (uint8_t)   0x02
+#define INITIALSETUP()                  (uint8_t)   0x03
+#define SAFERESET()                     (uint8_t)   0x04
+#define BASICEXTENDED()                 (uint8_t)   0x05
+#define BASICREFRACTED()                (uint8_t)   0X06
+#define STOP()                          (uint8_t)   0x07
+#define ADVANCEDEXTENDED()              (uint8_t)   0x08
+#define ADVANCEDREFRACTED()             (uint8_t)   0x09
+#define GETPOSITIONLOW()                (uint8_t)   0x0A
+#define GETPOSITIONHIGH()               (uint8_t)   0x0B
+#define GETPULSERATE()                  (uint8_t)   0x0C
+#define SENDPOSITIONLOW()               (uint8_t)   0x0D
+#define SENDPOSITIONHIGH()              (uint8_t)   0x0E
+#define SENDPULSERATE()                 (uint8_t)   0x0F
+#define SENDSTROKELENGHTLOW()           (uint8_t)   0x10
+#define SENDSTROKELENGHTHIGH()          (uint8_t)   0x11
+#define SENDSOFTSTART()                 (uint8_t)   0x12
+#define SENDACCELARATIONRATE()          (uint8_t)   0x13
+
+//  Auc Commands
+#define START()                         (uint8_t)   0xFF
+#define END()                           (uint8_t)   0XFE
+#define READWITHSUCESS()                (uint8_t)   0XFD
+
+//  SPI Modes
+#define COMMUNICATION()                 (uint8_t)   0xFC
+#define BASIC()                         (uint8_t)   0xFB
+#define ADVANCED()                      (uint8_t)   0xFA
+#define UPDATE()                        (uint8_t)   0xF9
+#define SETUP()                         (uint8_t)   0xF8
+
 
 //  SPI Masks
-#define INITIAL                     (uint8_t)   0
-#define MODE                        (uint8_t)   1
-#define SHIFT                       (uint8_t)   2
-#define PULSE_RATE_DISABLE          (uint8_t)   2
-#define STROKE_LENGHT_HIGH          (uint8_t)   2
-#define STROKE_LENGHT_LOW           (uint8_t)   3
-#define PULSE_RATE_ENABLE           (uint8_t)   4
-#define ACCELARATION_TIME_HIGH      (uint8_t)   5
-#define ACCELARATION_TIME_LOW       (uint8_t)   6
-#define SOFT_START_STOP             (uint8_t)   7
-#define SIZE_BUFFER_ENABLE_SPI      (uint8_t)   9
-#define SIZE_BUFFER_UPDATE          (uint8_t)   9
-#define SIZE_BUFFER_DISABLE_SPI     (uint8_t)   3
-#define SIZE_BUFFER_BASIC           (uint8_t)   3
-#define SIZE_BUFFER_ADVANCED        (uint8_t)   4
+#define MODE                            (uint8_t)   1
+#define CMD                             (uint8_t)   2
+#define DATA                            (uint8_t)   3
+#define SIZE_BUFFER_COMMUNCATION_MODE   (uint8_t)   4
+#define SIZE_BUFFER_SETUP_MODE          (uint8_t)   5
+#define SIZE_BUFFER_UPDATE_MODE         (uint8_t)   4
+#define SIZE_BUFFER_BASIC_MODE          (uint8_t)   4
+#define SIZE_BUFFER_ADVANCED_MODE       (uint8_t)   5
+
+
+
 
 void spiInit(void)
 {
@@ -100,95 +114,117 @@ void spiClose(void)
     bcm2835_close();
 }
 
-uint8_t disableCommunication(uint8_t _channel) {
-
+bool spiCmdCommunication(uint8_t _channel, uint8_t _cmd) {
     spiEnableSlave(_channel);
 
-    char bufferR [SIZE_BUFFER_DISABLE_SPI]  = {};
-    bufferR[INITIAL]                        = SPICOMMANDINITIAL();
-    bufferR[MODE]                           = DISABLESPI();
-    bufferR[SIZE_BUFFER_DISABLE_SPI-1]      = SPICOMMANDFINISHED();
+    char buffer [SIZE_BUFFER_COMMUNCATION_MODE] = {};
+    buffer[0]                                   = START();
+    buffer[MODE]                                = COMMUNICATION();
+    buffer[CMD]                                 = _cmd;
+    buffer[SIZE_BUFFER_COMMUNCATION_MODE-1]     = END();
 
-    bcm2835_spi_transfern(bufferR, SIZE_BUFFER_DISABLE_SPI);
-
-    spiDisableSlave(_channel);
-
-    return bufferR[PULSE_RATE_DISABLE];
-}
-
-int enableCommunication(uint8_t _channel, uint16_t _strokeLenght, uint8_t _pulseRate, uint16_t _accelarationTime, uint8_t _enableSoftStartStop) {
-    spiEnableSlave(_channel);
-
-    char bufferT [SIZE_BUFFER_ENABLE_SPI]   = {};
-    bufferT[INITIAL]                        = SPICOMMANDINITIAL();
-    bufferT[MODE]                           = ENABLESPI();
-    bufferT[STROKE_LENGHT_HIGH]             = (_strokeLenght >> 8) & 0xFF;
-    bufferT[STROKE_LENGHT_LOW]              = _strokeLenght & 0xFF;
-    bufferT[PULSE_RATE_ENABLE]              = _pulseRate;
-    bufferT[ACCELARATION_TIME_HIGH]         = (_accelarationTime>>8) & 0xFF;
-    bufferT[ACCELARATION_TIME_LOW]          = _accelarationTime & 0xFF;
-    bufferT[SOFT_START_STOP]                = _enableSoftStartStop;
-    bufferT[SIZE_BUFFER_ENABLE_SPI-1]       = SPICOMMANDFINISHED();
-
-    bcm2835_spi_transfern(bufferT, SIZE_BUFFER_ENABLE_SPI);
+    bcm2835_spi_transfern(buffer, SIZE_BUFFER_COMMUNCATION_MODE);
 
     spiDisableSlave(_channel);
-
-    for (int i = 0; i < SIZE_BUFFER_DISABLE_SPI; i++) {
-        if ( (bufferT[i] != SPIREADWITHSUCESS()) && (i != 0) )
-            return -1; //  Error
+    for (int i=MODE; i<SIZE_BUFFER_COMMUNCATION_MODE; i++){
+        if (buffer[i] != READWITHSUCESS())
+            return false;
     }
 
-    return 1;
+    return  true;
 }
 
-void sendUpdateCommand(int _channel, uint16_t _strokeLenght, uint8_t _pulseRate, uint16_t _accelarationTime, uint8_t _enableSoftStartStop)
+
+bool spiCmdUpdate(uint8_t _channel, uint8_t _cmd, uint8_t* data) {
+    spiEnableSlave(_channel);
+
+    char buffer [SIZE_BUFFER_UPDATE_MODE]   = {};
+    buffer[0]                               = START();
+    buffer[MODE]                            = UPDATE();
+    buffer[CMD]                             = _cmd;
+    buffer[SIZE_BUFFER_UPDATE_MODE-1]       = END();
+
+    bcm2835_spi_transfern(buffer, SIZE_BUFFER_UPDATE_MODE);
+
+    spiDisableSlave(_channel);
+
+    for (int i=MODE; i<SIZE_BUFFER_UPDATE_MODE-1; i++){
+        if (buffer[i] != READWITHSUCESS())
+            return false;
+    }
+
+    *data = buffer[SIZE_BUFFER_UPDATE_MODE-1];
+
+    return  true;
+
+}
+
+bool spiCmdBasic(uint8_t _channel, uint8_t _cmd)
 {
     spiEnableSlave(_channel);
 
-    char bufferT [SIZE_BUFFER_ENABLE_SPI]   = {};
-    bufferT[INITIAL]                        = SPICOMMANDINITIAL();
-    bufferT[MODE]                           = ENABLESPI();
-    bufferT[STROKE_LENGHT_HIGH]             = (_strokeLenght >> 8) & 0xFF;
-    bufferT[STROKE_LENGHT_LOW]              = _strokeLenght & 0xFF;
-    bufferT[PULSE_RATE_ENABLE]              = _pulseRate;
-    bufferT[ACCELARATION_TIME_HIGH]         = (_accelarationTime>>8) & 0xFF;
-    bufferT[ACCELARATION_TIME_LOW]          = _accelarationTime & 0xFF;
-    bufferT[SOFT_START_STOP]                = _enableSoftStartStop;
-    bufferT[SIZE_BUFFER_ENABLE_SPI-1]       = SPICOMMANDFINISHED();
+    char buffer [SIZE_BUFFER_BASIC_MODE]        = {};
+    buffer[0]                                   = START();
+    buffer[MODE]                                = BASIC();
+    buffer[CMD]                                 = _cmd;
+    buffer[SIZE_BUFFER_BASIC_MODE-1]            = END();
 
-    bcm2835_spi_transfern(bufferT, SIZE_BUFFER_ENABLE_SPI);
+    bcm2835_spi_transfern(buffer, SIZE_BUFFER_BASIC_MODE);
 
     spiDisableSlave(_channel);
+
+    for (int i=MODE; i<SIZE_BUFFER_BASIC_MODE; i++){
+        if (buffer[i] != READWITHSUCESS())
+            return false;
+    }
+
+    return  true;
 }
 
-void sendBasicCommand(uint8_t _channel, uint8_t _command)
+bool spiCmdAdvanced(uint8_t _channel, uint8_t _cmd, uint8_t _shift)
 {
     spiEnableSlave(_channel);
 
-    char bufferT [SIZE_BUFFER_BASIC]    = {};
-    bufferT[INITIAL]                    = SPICOMMANDINITIAL();
-    bufferT[MODE]                       = _command;
-    bufferT[SIZE_BUFFER_BASIC - 1]      = SPICOMMANDFINISHED();
+    char buffer [SIZE_BUFFER_ADVANCED_MODE]     = {};
+    buffer[0]                                   = START();
+    buffer[MODE]                                = ADVANCED();
+    buffer[CMD]                                 = _cmd;
+    buffer[DATA]                                = _shift;
+    buffer[SIZE_BUFFER_ADVANCED_MODE-1]     = END();
 
-    bcm2835_spi_transfern(bufferT, SIZE_BUFFER_BASIC);
+    bcm2835_spi_transfern(buffer, SIZE_BUFFER_ADVANCED_MODE);
 
     spiDisableSlave(_channel);
+
+    for (int i=MODE; i<SIZE_BUFFER_ADVANCED_MODE; i++){
+        if (buffer[i] != READWITHSUCESS())
+            return false;
+    }
+
+    return  true;
 }
 
-void sendAdvancedCommand(uint8_t _channel, uint8_t _command, uint8_t _shift)
+bool spiCmdSetup(uint8_t _channel, uint8_t _cmd, uint8_t _data)
 {
     spiEnableSlave(_channel);
 
-    char bufferT [SIZE_BUFFER_ADVANCED] = {};
-    bufferT[INITIAL]                    = SPICOMMANDINITIAL();
-    bufferT[MODE]                       = _command;
-    bufferT[SHIFT]                      = _shift;
-    bufferT[SIZE_BUFFER_ADVANCED - 1]   = SPICOMMANDFINISHED();
+    char buffer [SIZE_BUFFER_SETUP_MODE]        = {};
+    buffer[0]                                   = START();
+    buffer[MODE]                                = SETUP();
+    buffer[CMD]                                 = _cmd;
+    buffer[DATA]                                = _data;
+    buffer[SIZE_BUFFER_SETUP_MODE-1]            = END();
 
-    bcm2835_spi_transfern(bufferT, SIZE_BUFFER_ADVANCED);
+    bcm2835_spi_transfern(buffer, SIZE_BUFFER_SETUP_MODE);
 
     spiDisableSlave(_channel);
+
+    for (int i=MODE; i<SIZE_BUFFER_SETUP_MODE; i++){
+        if (buffer[i] != READWITHSUCESS())
+            return false;
+    }
+
+    return  true;
 }
 
 

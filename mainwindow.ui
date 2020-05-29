@@ -45,10 +45,10 @@
      <widget class="QWidget" name="gridLayoutWidget_6">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>30</y>
-        <width>941</width>
-        <height>491</height>
+        <x>0</x>
+        <y>0</y>
+        <width>981</width>
+        <height>521</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_channel1">
@@ -122,39 +122,25 @@
            <item>
             <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft3_channel1">
              <item>
-              <layout class="QHBoxLayout" name="horizontalLayoutAccelarationTime_channel1">
-               <item>
-                <widget class="QLabel" name="labelAccelarationTime_channel1">
-                 <property name="text">
-                  <string>Accelaration Time (ms):</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="lineEditAccelarationTime_channel1"/>
-               </item>
-              </layout>
-             </item>
-             <item>
               <layout class="QHBoxLayout" name="horizontalLayoutAccelarationRate_channel1">
                <item>
-                <widget class="QLabel" name="labelPulseRate_channel1">
+                <widget class="QLabel" name="labelAccelarationRate_channel1">
                  <property name="text">
-                  <string>Pulse Rate (imp/mm):</string>
+                  <string>Accelaration Rate (mm/s²):</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLineEdit" name="linePulseRate_channel1">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                </widget>
+                <widget class="QLineEdit" name="lineEditAccelarationRate_channel1"/>
                </item>
               </layout>
              </item>
              <item>
-              <layout class="QHBoxLayout" name="horizontalLayoutSpace_channel1"/>
+              <widget class="QCheckBox" name="checkBoxPwm_channel1">
+               <property name="text">
+                <string>Enable Soft Start and Stop</string>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>
@@ -190,7 +176,7 @@
            <item>
             <widget class="QLabel" name="labelLinearActuatorSpecifications1">
              <property name="text">
-              <string>Linear Actuator Specifications</string>
+              <string>Linear Actuator</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -238,6 +224,42 @@
                </item>
                <item>
                 <widget class="QLineEdit" name="lineEditMaxCurrent_channel1"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutPulseRate_channel1">
+               <item>
+                <widget class="QLabel" name="labelPulseRate_channel1">
+                 <property name="text">
+                  <string>Pulse Rate (imp/mm):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="linePulseRate_channel1">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutPosition_channel1">
+               <item>
+                <widget class="QLabel" name="labelPostiton_channel1">
+                 <property name="text">
+                  <string>Position (mm):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="linePosition_channel1">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>
@@ -337,20 +359,6 @@
            </property>
           </widget>
          </item>
-         <item>
-          <widget class="QCheckBox" name="checkBoxPwm_channel1">
-           <property name="text">
-            <string>Enable Soft Start and Stop</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QCheckBox" name="checkBoxGraphics_channel1">
-           <property name="text">
-            <string>Generate Graphics</string>
-           </property>
-          </widget>
-         </item>
         </layout>
        </item>
       </layout>
@@ -366,10 +374,10 @@
      <widget class="QWidget" name="gridLayoutWidget_7">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>20</y>
-        <width>941</width>
-        <height>491</height>
+        <x>0</x>
+        <y>0</y>
+        <width>971</width>
+        <height>521</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_channel2">
@@ -443,39 +451,29 @@
            <item>
             <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft3_channel2">
              <item>
-              <layout class="QHBoxLayout" name="horizontalLayoutAccelarationTime_channel2">
-               <item>
-                <widget class="QLabel" name="labelAccelarationTime_channel2">
-                 <property name="text">
-                  <string>Accelaration Time (ms):</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="lineEditAccelarationTime_channel2"/>
-               </item>
-              </layout>
-             </item>
-             <item>
               <layout class="QHBoxLayout" name="horizontalLayoutAccelarationRate_channel2">
                <item>
-                <widget class="QLabel" name="labelPulseRate_channel2">
+                <widget class="QLabel" name="labelAccelarationRate_channel2">
                  <property name="text">
-                  <string>Pulse Rate (imp/mm):</string>
+                  <string>Accelaration Rate (mm/s²):</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLineEdit" name="linePulseRate_channel2">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                </widget>
+                <widget class="QLineEdit" name="lineEditAccelarationRate_channel2"/>
                </item>
               </layout>
              </item>
              <item>
-              <layout class="QHBoxLayout" name="horizontalLayoutSpace_channel2"/>
+              <layout class="QHBoxLayout" name="horizontalLayoutSpace_channel2">
+               <item>
+                <widget class="QCheckBox" name="checkBoxPwm_channel2">
+                 <property name="text">
+                  <string>Enable Soft Start and Stop</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </item>
             </layout>
            </item>
@@ -559,6 +557,42 @@
                </item>
                <item>
                 <widget class="QLineEdit" name="lineEditMaxCurrent_channel2"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutPulseRate_channel2">
+               <item>
+                <widget class="QLabel" name="labelPulseRate_channel2">
+                 <property name="text">
+                  <string>Pulse Rate (imp/mm):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="linePulseRate_channel2">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutPosition_channel2">
+               <item>
+                <widget class="QLabel" name="labelPosition_channel2">
+                 <property name="text">
+                  <string>Position (mm):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="linePosition_channel2">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>
@@ -658,20 +692,6 @@
            </property>
           </widget>
          </item>
-         <item>
-          <widget class="QCheckBox" name="checkBoxPwm_channel2">
-           <property name="text">
-            <string>Enable Soft Start and Stop</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QCheckBox" name="checkBoxGraphics_channel2">
-           <property name="text">
-            <string>Generate Graphics</string>
-           </property>
-          </widget>
-         </item>
         </layout>
        </item>
       </layout>
@@ -684,10 +704,10 @@
      <widget class="QWidget" name="gridLayoutWidget_8">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>941</width>
-        <height>491</height>
+        <x>0</x>
+        <y>0</y>
+        <width>981</width>
+        <height>521</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_channel3">
@@ -761,39 +781,29 @@
            <item>
             <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft3_channel3">
              <item>
-              <layout class="QHBoxLayout" name="horizontalLayoutAccelarationTime_channel3">
-               <item>
-                <widget class="QLabel" name="labelAccelarationTime_channel3">
-                 <property name="text">
-                  <string>Accelaration Time (ms):</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="lineEditAccelarationTime_channel3"/>
-               </item>
-              </layout>
-             </item>
-             <item>
               <layout class="QHBoxLayout" name="horizontalLayoutAccelarationRate_channel3">
                <item>
-                <widget class="QLabel" name="labelPulseRate_channel3">
+                <widget class="QLabel" name="labelAccelarationRate_channel3">
                  <property name="text">
-                  <string>Pulse Rate (imp/mm):</string>
+                  <string>Accelaration Rate (mm/s²):</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLineEdit" name="linePulseRate_channel3">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                </widget>
+                <widget class="QLineEdit" name="lineEditAccelarationRate_channel3"/>
                </item>
               </layout>
              </item>
              <item>
-              <layout class="QHBoxLayout" name="horizontalLayoutSpace_channel3"/>
+              <layout class="QHBoxLayout" name="horizontalLayoutSpace_channel3">
+               <item>
+                <widget class="QCheckBox" name="checkBoxPwm_channel3">
+                 <property name="text">
+                  <string>Enable Soft Start and Stop</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </item>
             </layout>
            </item>
@@ -877,6 +887,42 @@
                </item>
                <item>
                 <widget class="QLineEdit" name="lineEditMaxCurrent_channel3"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutPulseRate_channel3">
+               <item>
+                <widget class="QLabel" name="labelPulseRate_channel3">
+                 <property name="text">
+                  <string>Pulse Rate (imp/mm):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="linePulseRate_channel3">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutPosition_channel3">
+               <item>
+                <widget class="QLabel" name="labelPosition_channel3">
+                 <property name="text">
+                  <string>Position (mm):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="linePosition_channel3">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>
@@ -976,20 +1022,6 @@
            </property>
           </widget>
          </item>
-         <item>
-          <widget class="QCheckBox" name="checkBoxPwm_channel3">
-           <property name="text">
-            <string>Enable Soft Start and Stop</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QCheckBox" name="checkBoxGraphics_channel3">
-           <property name="text">
-            <string>Generate Graphics</string>
-           </property>
-          </widget>
-         </item>
         </layout>
        </item>
       </layout>
@@ -1002,10 +1034,10 @@
      <widget class="QWidget" name="gridLayoutWidget_9">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>10</y>
-        <width>941</width>
-        <height>491</height>
+        <x>0</x>
+        <y>0</y>
+        <width>981</width>
+        <height>521</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_channel4">
@@ -1079,39 +1111,29 @@
            <item>
             <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft3_channel4">
              <item>
-              <layout class="QHBoxLayout" name="horizontalLayoutAccelarationTime_channel4">
+              <layout class="QHBoxLayout" name="horizontalLayoutAccelarationRate_channel4_3">
                <item>
-                <widget class="QLabel" name="labelAccelarationTime_channel4">
+                <widget class="QLabel" name="labelAccelarationRate_channel4">
                  <property name="text">
-                  <string>Accelaration Time (ms):</string>
+                  <string>Accelaration Rate (mm/s²):</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLineEdit" name="lineEditAccelarationTime_channel4"/>
+                <widget class="QLineEdit" name="lineEditAccelarationRate_channel4"/>
                </item>
               </layout>
              </item>
              <item>
-              <layout class="QHBoxLayout" name="horizontalLayoutAccelarationRate_channel4">
+              <layout class="QHBoxLayout" name="horizontalLayoutSpace_channel4">
                <item>
-                <widget class="QLabel" name="labelPulseRate_channel4">
+                <widget class="QCheckBox" name="checkBoxPwm_channel4">
                  <property name="text">
-                  <string>Pulse Rate (imp/mm):</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="linePulseRate_channel4">
-                 <property name="enabled">
-                  <bool>false</bool>
+                  <string>Enable Soft Start and Stop</string>
                  </property>
                 </widget>
                </item>
               </layout>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayoutSpace_channel4"/>
              </item>
             </layout>
            </item>
@@ -1195,6 +1217,42 @@
                </item>
                <item>
                 <widget class="QLineEdit" name="lineEditMaxCurrent_channel4"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutPulseRate_channel4">
+               <item>
+                <widget class="QLabel" name="labelPulseRate_channel4">
+                 <property name="text">
+                  <string>Pulse Rate (imp/mm):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="linePulseRate_channel4">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutPosition_channel4">
+               <item>
+                <widget class="QLabel" name="labelPosition_channel4">
+                 <property name="text">
+                  <string>Position (mm):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="linePosition_channel4">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>
@@ -1294,20 +1352,6 @@
            </property>
           </widget>
          </item>
-         <item>
-          <widget class="QCheckBox" name="checkBoxPwm_channel4">
-           <property name="text">
-            <string>Enable Soft Start and Stop</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QCheckBox" name="checkBoxGraphics_channel4">
-           <property name="text">
-            <string>Generate Graphics</string>
-           </property>
-          </widget>
-         </item>
         </layout>
        </item>
       </layout>
@@ -1320,219 +1364,17 @@
      <widget class="QWidget" name="gridLayoutWidget_10">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>941</width>
-        <height>491</height>
+        <x>0</x>
+        <y>0</y>
+        <width>981</width>
+        <height>521</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_channel5">
-       <item row="2" column="0">
-        <layout class="QVBoxLayout" name="verticalLayoutBasicCommands_channel5">
-         <item>
-          <widget class="QLabel" name="labelBasicCommands_channel5">
-           <property name="text">
-            <string>Basic Commands</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pushButtonInitialSetup_channel5">
-           <property name="text">
-            <string>Initial Setup</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pushButtonSafeReset_channel5">
-           <property name="text">
-            <string>Safe Reset</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pushButtonStop_channel5">
-           <property name="text">
-            <string>Stop</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayoutBasicControl_channel5">
-           <item>
-            <widget class="QPushButton" name="pushButtonBasicExtended_channel5">
-             <property name="text">
-              <string>Extended</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="pushButtonBasicRefracted_channel5">
-             <property name="text">
-              <string>Refracted</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </item>
-       <item row="0" column="3">
-        <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft_channel5">
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft2_channel5">
-           <item>
-            <widget class="QLabel" name="labelStartStopSoft_channel5">
-             <property name="text">
-              <string>  Start and Stop Soft</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft3_channel5">
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayoutAccelarationTime_channel5">
-               <item>
-                <widget class="QLabel" name="labelAccelarationTime_channel5">
-                 <property name="text">
-                  <string>Accelaration Time (ms):</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="lineEditAccelarationTime_channel5"/>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayoutAccelarationRate_channel5">
-               <item>
-                <widget class="QLabel" name="labelPulseRate_channel5">
-                 <property name="text">
-                  <string>Pulse Rate (imp/mm):</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="linePulseRate_channel5">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayoutSpace_channel5"/>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pushButtonUpdateStartStopSoft_channel5">
-           <property name="text">
-            <string>Update</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item row="1" column="0">
-        <widget class="Line" name="line_28">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
        <item row="1" column="3">
         <widget class="Line" name="line_29">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <layout class="QVBoxLayout" name="verticalLayoutLinearActuatorSpecifications_channel5">
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayoutLinearActuator_channel5">
-           <item>
-            <widget class="QLabel" name="labelLinearActuatorSpecifications5">
-             <property name="text">
-              <string>Linear Actuator Specifications</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <layout class="QVBoxLayout" name="verticalLayoutSpecifications_channel5">
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayoutModel_channel5">
-               <item>
-                <widget class="QLabel" name="labelModel_channel5">
-                 <property name="text">
-                  <string>Model:</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="lineEditModel_channel5"/>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayoutStrokeLenght_channel5">
-               <item>
-                <widget class="QLabel" name="labelStrokeLenght_channel5">
-                 <property name="text">
-                  <string>Stroke Lenght (mm):</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="lineEditStrokeLenght_channel5"/>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalMaxCurrent_channel5">
-               <item>
-                <widget class="QLabel" name="labelMaxCurrent_channel5">
-                 <property name="text">
-                  <string>Maximum Current (A):</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="lineEditMaxCurrent_channel5"/>
-               </item>
-              </layout>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pushButtonUpdateLinearActuatorSpecifications_channel5">
-           <property name="text">
-            <string>Update</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item row="0" column="1" rowspan="3">
-        <widget class="Line" name="line_30">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
          </property>
         </widget>
        </item>
@@ -1612,19 +1454,233 @@
            </property>
           </widget>
          </item>
+        </layout>
+       </item>
+       <item row="0" column="1" rowspan="3">
+        <widget class="Line" name="line_30">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="Line" name="line_28">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <layout class="QVBoxLayout" name="verticalLayoutLinearActuatorSpecifications_channel5">
          <item>
-          <widget class="QCheckBox" name="checkBoxPwm_channel5">
+          <layout class="QVBoxLayout" name="verticalLayoutLinearActuator_channel5">
+           <item>
+            <widget class="QLabel" name="labelLinearActuatorSpecifications5">
+             <property name="text">
+              <string>Linear Actuator Specifications</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayoutSpecifications_channel5">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutModel_channel5">
+               <item>
+                <widget class="QLabel" name="labelModel_channel5">
+                 <property name="text">
+                  <string>Model:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditModel_channel5"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutStrokeLenght_channel5">
+               <item>
+                <widget class="QLabel" name="labelStrokeLenght_channel5">
+                 <property name="text">
+                  <string>Stroke Lenght (mm):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditStrokeLenght_channel5"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalMaxCurrent_channel5">
+               <item>
+                <widget class="QLabel" name="labelMaxCurrent_channel5">
+                 <property name="text">
+                  <string>Maximum Current (A):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditMaxCurrent_channel5"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutPulseRate_channel5">
+               <item>
+                <widget class="QLabel" name="labelPulseRate_channel5">
+                 <property name="text">
+                  <string>Pulse Rate (imp/mm):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="linePulseRate_channel5">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutPosition_channel5">
+               <item>
+                <widget class="QLabel" name="labelPosition_channel5">
+                 <property name="text">
+                  <string>Position (mm):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="linePosition_channel5">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonUpdateLinearActuatorSpecifications_channel5">
            <property name="text">
-            <string>Enable Soft Start and Stop</string>
+            <string>Update</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="3">
+        <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft_channel5">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft2_channel5">
+           <item>
+            <widget class="QLabel" name="labelStartStopSoft_channel5">
+             <property name="text">
+              <string>  Start and Stop Soft</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft3_channel5">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutAccelarationRate_channel5">
+               <item>
+                <widget class="QLabel" name="labelAccelarationRate_channel5">
+                 <property name="text">
+                  <string>Accelaration Rate (mm/s²):</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEditAccelarationRate_channel5"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutSpace_channel5">
+               <item>
+                <widget class="QCheckBox" name="checkBoxPwm_channel5">
+                 <property name="text">
+                  <string>Enable Soft Start and Stop</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonUpdateStartStopSoft_channel5">
+           <property name="text">
+            <string>Update</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="2" column="0">
+        <layout class="QVBoxLayout" name="verticalLayoutBasicCommands_channel5">
+         <item>
+          <widget class="QLabel" name="labelBasicCommands_channel5">
+           <property name="text">
+            <string>Basic Commands</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QCheckBox" name="checkBoxGraphics_channel5">
+          <widget class="QPushButton" name="pushButtonInitialSetup_channel5">
            <property name="text">
-            <string>Generate Graphics</string>
+            <string>Initial Setup</string>
            </property>
           </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonSafeReset_channel5">
+           <property name="text">
+            <string>Safe Reset</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonStop_channel5">
+           <property name="text">
+            <string>Stop</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayoutBasicControl_channel5">
+           <item>
+            <widget class="QPushButton" name="pushButtonBasicExtended_channel5">
+             <property name="text">
+              <string>Extended</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButtonBasicRefracted_channel5">
+             <property name="text">
+              <string>Refracted</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
         </layout>
        </item>

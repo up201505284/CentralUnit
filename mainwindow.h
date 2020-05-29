@@ -7,6 +7,18 @@
 #define JSON_FILE_NAME              "RecordsOfChannels.js"
 #define MAX_NUMBER_CHANNELS         5
 
+#define CHANNEL1                    1
+#define CHANNEL2                    2
+#define CHANNEL3                    3
+#define CHANNEL4                    4
+#define CHANNEL5                    5
+
+#define TAB_CHANNEL1                0
+#define TAB_CHANNEL2                1
+#define TAB_CHANNEL3                2
+#define TAB_CHANNEL4                3
+#define TAB_CHANNEL5                4
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -21,23 +33,27 @@ class MainWindow : public QMainWindow
        ~MainWindow();
 
        // "Set" methods
-       void    setListOfChannels   (QList<Channel*> _listOfChannels);
+       void setListOfChannels (QList<Channel*> _listOfChannels);
 
        // "Get" methods
-       QList<Channel*> getListOfChannels   (void);
+       QList<Channel*> getListOfChannels (void);
 
        //  Init methods
-       void   initListOfActuators  (void);
-       void   checkCommunications  (void);
-       void   restartCommunication(void);
+       void     initListOfActuators (void);
+       void     checkCommunications (void);
+       void     restartCommunication(uint8_t _channel);
+       Channel* getChannel          (uint8_t _channel);
 
        //  Json File
-       void    readJsonFile    (void);
-       void    updateJsonFile  (void);
+       void readJsonFile    (void);
+       void updateJsonFile  (void);
 
-       //  Setup widgests
-       void    setupTab             (void);
-       void    checkSoftStartStop   (void);
+       void setupTab                    (void);
+       void ButtonUpdateLinearActuator  (uint8_t _ch, uint16_t _strokeLenght, string _model, float _maxCurrent);
+       void ButtonUpdateSoftStartStop   (uint8_t _ch, uint8_t _accelarationRate);
+       void CheckBoxSoftStartStop       (uint8_t _ch, uint8_t _softStartStop);
+       void Update                      (void);
+
 
 
     private slots:

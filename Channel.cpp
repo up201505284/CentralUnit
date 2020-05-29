@@ -3,7 +3,7 @@
 //  Constructor
 Channel::Channel(uint8_t _numberChannel)
 {
-    setAccelarationTime (ACCELARATION_TIME_DEFAULT  );
+    setAccelarationRate (ACCELARATION_RATE_DEFAULT  );
     setStrokeLenght     (STROKE_LENGHT_DEFAULT      );
     setMaxCurrent       (MAX_CURRENT_DEFAULT        );
     setModel            (MODEL_DEFAULT              );
@@ -11,6 +11,7 @@ Channel::Channel(uint8_t _numberChannel)
     setPulseRate        (PULSE_RATE_DEFAULT         );
     setCommunication    (COMMUNICATION_DEFAULT      );
     setSoftStartStop    (SOFT_START_STOP_DEFAULT    );
+    setPosition         (POSITION_DEFAULT           );
 
     if (_numberChannel == 1)
        setPin(PIN_CHANNEL1);
@@ -53,9 +54,9 @@ void Channel::setChannelNumber(uint8_t _channelNumber)
     channelNumber = _channelNumber;
 }
 
-void Channel::setAccelarationTime(uint16_t _accelarationTime)
+void Channel::setAccelarationRate(uint16_t _accelarationRate)
 {
-    accelarationTime = _accelarationTime;
+    accelarationRate = _accelarationRate;
 }
 
 void Channel::setStrokeLenght(uint16_t _strokeLenght)
@@ -78,15 +79,22 @@ void Channel::setPin(uint8_t _pin)
     pin = _pin;
 }
 
+void Channel::setPosition(uint16_t _position)
+{
+    position = _position;
+}
+
 //  "Get" Methods
 string Channel::getModel(void)
 {
     return  model;
 }
+
 string Channel::getCommunication(void)
 {
     return  communication;
 }
+
 float Channel::getMaxCurrent(void)
 {
     return  maxCurrent;
@@ -96,23 +104,33 @@ uint8_t Channel::getChannelNumber(void)
 {
     return  channelNumber;
 }
-uint16_t Channel::getAccelarationTime(void)
+
+uint8_t Channel::getAccelarationRate(void)
 {
-    return  accelarationTime;
+    return  accelarationRate;
 }
+
 uint16_t Channel::getStrokeLenght(void)
 {
     return  strokeLenght;
 }
+
 uint8_t Channel::getPulseRate(void)
 {
     return  pulseRate;
 }
+
 uint8_t Channel::getSoftStartStop(void)
 {
     return softStartStop;
 }
+
 uint8_t Channel::getPin(void)
 {
     return pin;
+}
+
+uint16_t Channel::getPosition(void)
+{
+    return  position;
 }
