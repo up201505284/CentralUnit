@@ -125,14 +125,20 @@ void MainWindow::updateJsonFile (void)
 void MainWindow::checkCommunications (void){
     for (Channel* _ch: getListOfChannels()){
         if (spiCmdCommunication(_ch->getPin(), ENABLE())) {
-            _ch->setCommunication("Enable");
-            spiCmdSetup(_ch->getPin(), SENDSOFTSTART(), _ch->getSoftStartStop());
-            spiCmdSetup(_ch->getPin(), SENDSTROKELENGHTLOW(), _ch->getStrokeLenght() & 0xFF);
-            spiCmdSetup(_ch->getPin(), SENDSTROKELENGHTHIGH(), (_ch->getStrokeLenght() >> 8) & 0xFF);
-            spiCmdSetup(_ch->getPin(), SENDACCELARATIONRATE(), _ch->getAccelarationRate());
-            spiCmdSetup(_ch->getPin(), SENDPULSERATE(), _ch->getPulseRate());
-            spiCmdSetup(_ch->getPin(), SENDPOSITIONLOW(), _ch->getPosition() & 0xFF);
-            spiCmdSetup(_ch->getPin(), SENDPOSITIONHIGH(), (_ch->getPosition() >> 8) & 0xFF);
+            if (spiCmdSetup(_ch->getPin(), SENDSOFTSTART(), _ch->getSoftStartStop())) {
+                if (spiCmdSetup(_ch->getPin(), SENDSTROKELENGHTLOW(), _ch->getStrokeLenght() & 0xFF)) {
+                    if (spiCmdSetup(_ch->getPin(), SENDSTROKELENGHTHIGH(), (_ch->getStrokeLenght() >> 8) & 0xFF)) {
+                        if (spiCmdSetup(_ch->getPin(), SENDACCELARATIONRATE(), _ch->getAccelarationRate())) {
+                            if (spiCmdSetup(_ch->getPin(), SENDPULSERATE(), _ch->getPulseRate())) {
+                                //if (spiCmdSetup(_ch->getPin(), SENDPOSITIONLOW(), _ch->getPosition() & 0xFF)) {
+                                  //  if (spiCmdSetup(_ch->getPin(), SENDPOSITIONHIGH(), (_ch->getPosition() >> 8) & 0xFF))
+                                        _ch->setCommunication("Enable");
+                               // }
+                           }
+                        }
+                    }
+                }
+            }
         }
         else
             _ch->setCommunication("Disable");
@@ -175,8 +181,8 @@ void MainWindow::restartCommunication(uint8_t _channel)
     spiCmdSetup(_ch->getPin(), SENDSTROKELENGHTHIGH(), (_ch->getStrokeLenght() >> 8) & 0xFF);
     spiCmdSetup(_ch->getPin(), SENDACCELARATIONRATE(), _ch->getAccelarationRate());
     spiCmdSetup(_ch->getPin(), SENDPULSERATE(), _ch->getPulseRate());
-    spiCmdSetup(_ch->getPin(), SENDPOSITIONLOW(), _ch->getPosition() & 0xFF);
-    spiCmdSetup(_ch->getPin(), SENDPOSITIONHIGH(), (_ch->getPosition() >> 8) & 0xFF);
+    //spiCmdSetup(_ch->getPin(), SENDPOSITIONLOW(), _ch->getPosition() & 0xFF);
+    //spiCmdSetup(_ch->getPin(), SENDPOSITIONHIGH(), (_ch->getPosition() >> 8) & 0xFF);
 
 
 
@@ -199,14 +205,13 @@ void MainWindow::setupTab(void)
 
             ui->horizontalSliderExtended_channel1       ->setRange(0, _channel->getStrokeLenght());
             ui->horizontalSliderRefracted_channel1      ->setRange(0, _channel->getStrokeLenght());
+            ui->horizontalSliderExtended_channel1       ->setValue(0);
+            ui->horizontalSliderRefracted_channel1      ->setValue(0);
             ui->labelRefractedAdvanced_channel1         ->setText(QString::number(ui->horizontalSliderRefracted_channel1->value()));
             ui->labelExtendedAdvanced_channel1          ->setText(QString::number(ui->horizontalSliderExtended_channel1 ->value()));
 
             ui->lineEditAccelarationRate_channel1       ->setEnabled(ui->checkBoxPwm_channel1->isChecked());
             ui->pushButtonUpdateStartStopSoft_channel1  ->setEnabled(ui->checkBoxPwm_channel1->isChecked());
-
-            ui->labelRefractedAdvanced_channel1         ->setText(QString::number(ui->horizontalSliderRefracted_channel1->value()));
-            ui->labelExtendedAdvanced_channel1          ->setText(QString::number(ui->horizontalSliderExtended_channel1 ->value()));
 
 
             if (_channel->getCommunication() == "Enable")
@@ -225,14 +230,14 @@ void MainWindow::setupTab(void)
 
             ui->horizontalSliderExtended_channel2       ->setRange(0, _channel->getStrokeLenght());
             ui->horizontalSliderRefracted_channel2      ->setRange(0, _channel->getStrokeLenght());
+            ui->horizontalSliderExtended_channel2       ->setValue(0);
+            ui->horizontalSliderRefracted_channel2      ->setValue(0);
 
             ui->lineEditAccelarationRate_channel2       ->setEnabled(ui->checkBoxPwm_channel2->isChecked());
             ui->pushButtonUpdateStartStopSoft_channel2  ->setEnabled(ui->checkBoxPwm_channel2->isChecked());
+
             ui->labelRefractedAdvanced_channel2        ->setText(QString::number(ui->horizontalSliderRefracted_channel1->value()));
             ui->labelExtendedAdvanced_channel2          ->setText(QString::number(ui->horizontalSliderExtended_channel1 ->value()));
-
-            ui->labelRefractedAdvanced_channel2         ->setText(QString::number(ui->horizontalSliderRefracted_channel2->value()));
-            ui->labelExtendedAdvanced_channel2          ->setText(QString::number(ui->horizontalSliderExtended_channel2 ->value()));
 
 
             if (_channel->getCommunication() == "Enable")
@@ -251,14 +256,14 @@ void MainWindow::setupTab(void)
 
             ui->horizontalSliderExtended_channel3       ->setRange(0, _channel->getStrokeLenght());
             ui->horizontalSliderRefracted_channel3      ->setRange(0, _channel->getStrokeLenght());
+            ui->horizontalSliderExtended_channel3       ->setValue(0);
+            ui->horizontalSliderRefracted_channel3      ->setValue(0);
 
             ui->lineEditAccelarationRate_channel3       ->setEnabled(ui->checkBoxPwm_channel3->isChecked());
             ui->pushButtonUpdateStartStopSoft_channel3  ->setEnabled(ui->checkBoxPwm_channel3->isChecked());
+
             ui->labelRefractedAdvanced_channel3         ->setText(QString::number(ui->horizontalSliderRefracted_channel1->value()));
             ui->labelExtendedAdvanced_channel3          ->setText(QString::number(ui->horizontalSliderExtended_channel1 ->value()));
-
-            ui->labelRefractedAdvanced_channel3         ->setText(QString::number(ui->horizontalSliderRefracted_channel3->value()));
-            ui->labelExtendedAdvanced_channel3          ->setText(QString::number(ui->horizontalSliderExtended_channel3 ->value()));
 
 
             if (_channel->getCommunication() == "Enable")
@@ -277,15 +282,14 @@ void MainWindow::setupTab(void)
 
             ui->horizontalSliderExtended_channel4       ->setRange(0, _channel->getStrokeLenght());
             ui->horizontalSliderRefracted_channel4      ->setRange(0, _channel->getStrokeLenght());
+            ui->horizontalSliderExtended_channel4       ->setValue(0);
+            ui->horizontalSliderRefracted_channel4      ->setValue(0);
 
             ui->lineEditAccelarationRate_channel4       ->setEnabled(ui->checkBoxPwm_channel4->isChecked());
             ui->pushButtonUpdateStartStopSoft_channel4  ->setEnabled(ui->checkBoxPwm_channel4->isChecked());
+
             ui->labelRefractedAdvanced_channel4         ->setText(QString::number(ui->horizontalSliderRefracted_channel1->value()));
             ui->labelExtendedAdvanced_channel4          ->setText(QString::number(ui->horizontalSliderExtended_channel1 ->value()));
-
-            ui->labelRefractedAdvanced_channel4         ->setText(QString::number(ui->horizontalSliderRefracted_channel4->value()));
-            ui->labelExtendedAdvanced_channel4          ->setText(QString::number(ui->horizontalSliderExtended_channel4 ->value()));
-
 
             if (_channel->getCommunication() == "Enable")
                 ui->channel4->setEnabled(true);
@@ -303,9 +307,12 @@ void MainWindow::setupTab(void)
 
             ui->horizontalSliderExtended_channel5       ->setRange(0, _channel->getStrokeLenght());
             ui->horizontalSliderRefracted_channel5      ->setRange(0, _channel->getStrokeLenght());
+            ui->horizontalSliderExtended_channel5       ->setValue(0);
+            ui->horizontalSliderRefracted_channel5      ->setValue(0);
 
             ui->lineEditAccelarationRate_channel5       ->setEnabled(ui->checkBoxPwm_channel5->isChecked());
             ui->pushButtonUpdateStartStopSoft_channel5  ->setEnabled(ui->checkBoxPwm_channel5->isChecked());
+
             ui->labelRefractedAdvanced_channel5         ->setText(QString::number(ui->horizontalSliderRefracted_channel1->value()));
             ui->labelExtendedAdvanced_channel5          ->setText(QString::number(ui->horizontalSliderExtended_channel1 ->value()));
 
@@ -782,7 +789,7 @@ void MainWindow::ButtonUpdateSoftStartStop(uint8_t _ch, uint8_t _accelarationRat
 {
     Channel* _channel = getChannel(_ch);
 
-    if (spiCmdSetup(PIN_CHANNEL1, SENDSOFTSTART(), _accelarationRate))
+    if (spiCmdSetup(_channel->getPin(), SENDACCELARATIONRATE(), _accelarationRate))
         _channel->setAccelarationRate(_accelarationRate);
     else
         _channel->setCommunication("Disable");
@@ -794,7 +801,7 @@ void MainWindow::ButtonUpdateSoftStartStop(uint8_t _ch, uint8_t _accelarationRat
 void MainWindow::CheckBoxSoftStartStop(uint8_t _ch, uint8_t _softStartStop)
 {
     Channel* _channel = getChannel(_ch);
-    if (spiCmdUpdate(_channel->getPin(), SENDSOFTSTART(), &_softStartStop))
+    if (spiCmdSetup(_channel->getPin(), SENDSOFTSTART(), _softStartStop))
         _channel->setSoftStartStop(_softStartStop);
     else
         _channel->setCommunication("Disable");
