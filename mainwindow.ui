@@ -6,21 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1032</width>
-    <height>642</height>
+    <width>965</width>
+    <height>640</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTabWidget" name="tabChannel">
+   <widget class="QTabWidget" name="tab">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>991</width>
-      <height>581</height>
+      <x>10</x>
+      <y>30</y>
+      <width>931</width>
+      <height>541</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -45,10 +45,10 @@
      <widget class="QWidget" name="gridLayoutWidget_6">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>981</width>
-        <height>521</height>
+        <x>70</x>
+        <y>30</y>
+        <width>761</width>
+        <height>471</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_channel1">
@@ -122,11 +122,36 @@
            <item>
             <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft3_channel1">
              <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutMaxSpeed_channel1">
+               <item>
+                <widget class="QLabel" name="labelAccelarationRate_channel1_2">
+                 <property name="text">
+                  <string>Maximum Speed:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSpinBox" name="spinBox_channel1">
+                 <property name="maximum">
+                  <number>100</number>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="labelMaxSpeed_channel1">
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
               <layout class="QHBoxLayout" name="horizontalLayoutAccelarationRate_channel1">
                <item>
                 <widget class="QLabel" name="labelAccelarationRate_channel1">
                  <property name="text">
-                  <string>Accelaration Rate (mm/s²):</string>
+                  <string>Accelaration Time (ms):</string>
                  </property>
                 </widget>
                </item>
@@ -374,10 +399,10 @@
      <widget class="QWidget" name="gridLayoutWidget_7">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>971</width>
-        <height>521</height>
+        <x>60</x>
+        <y>30</y>
+        <width>771</width>
+        <height>471</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_channel2">
@@ -451,11 +476,36 @@
            <item>
             <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft3_channel2">
              <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutMaxSpeed_channel2">
+               <item>
+                <widget class="QLabel" name="labelAccelarationRate_channel2_2">
+                 <property name="text">
+                  <string>Maximum Speed:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSpinBox" name="spinBox_channel2">
+                 <property name="maximum">
+                  <number>100</number>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="labelMaxSpeed_channel2">
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
               <layout class="QHBoxLayout" name="horizontalLayoutAccelarationRate_channel2">
                <item>
                 <widget class="QLabel" name="labelAccelarationRate_channel2">
                  <property name="text">
-                  <string>Accelaration Rate (mm/s²):</string>
+                  <string>Accelaration Time (mm):</string>
                  </property>
                 </widget>
                </item>
@@ -704,10 +754,10 @@
      <widget class="QWidget" name="gridLayoutWidget_8">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>981</width>
-        <height>521</height>
+        <x>80</x>
+        <y>30</y>
+        <width>761</width>
+        <height>471</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_channel3">
@@ -781,11 +831,36 @@
            <item>
             <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft3_channel3">
              <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutMaxSpeed_channel3">
+               <item>
+                <widget class="QLabel" name="labelAccelarationRate_channel3_2">
+                 <property name="text">
+                  <string>Maximum Speed:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSpinBox" name="spinBox_channel3">
+                 <property name="maximum">
+                  <number>100</number>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="labelMaxSpeed_channel3">
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
               <layout class="QHBoxLayout" name="horizontalLayoutAccelarationRate_channel3">
                <item>
                 <widget class="QLabel" name="labelAccelarationRate_channel3">
                  <property name="text">
-                  <string>Accelaration Rate (mm/s²):</string>
+                  <string>Accelaration Time (mm):</string>
                  </property>
                 </widget>
                </item>
@@ -1034,10 +1109,10 @@
      <widget class="QWidget" name="gridLayoutWidget_9">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>981</width>
-        <height>521</height>
+        <x>60</x>
+        <y>30</y>
+        <width>781</width>
+        <height>471</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_channel4">
@@ -1111,11 +1186,36 @@
            <item>
             <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft3_channel4">
              <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutMaxSpeed_channel4">
+               <item>
+                <widget class="QLabel" name="labelAccelarationRate_channel4_2">
+                 <property name="text">
+                  <string>Maximum Speed:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSpinBox" name="spinBox_channel4">
+                 <property name="maximum">
+                  <number>100</number>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="labelMaxSpeed_channel4">
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
               <layout class="QHBoxLayout" name="horizontalLayoutAccelarationRate_channel4_3">
                <item>
                 <widget class="QLabel" name="labelAccelarationRate_channel4">
                  <property name="text">
-                  <string>Accelaration Rate (mm/s²):</string>
+                  <string>Accelaration Time (mm):</string>
                  </property>
                 </widget>
                </item>
@@ -1364,10 +1464,10 @@
      <widget class="QWidget" name="gridLayoutWidget_10">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>981</width>
-        <height>521</height>
+        <x>70</x>
+        <y>30</y>
+        <width>771</width>
+        <height>471</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_channel5">
@@ -1594,11 +1694,36 @@
            <item>
             <layout class="QVBoxLayout" name="verticalLayoutStartStopSoft3_channel5">
              <item>
+              <layout class="QHBoxLayout" name="horizontalLayoutMaxSpeed_channel5">
+               <item>
+                <widget class="QLabel" name="labelAccelarationRate_channel1_7">
+                 <property name="text">
+                  <string>Maximum Speed:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSpinBox" name="spinBox_channel5">
+                 <property name="maximum">
+                  <number>100</number>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="labelMaxSpeed_channel5">
+                 <property name="text">
+                  <string>% of nominal speed</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
               <layout class="QHBoxLayout" name="horizontalLayoutAccelarationRate_channel5">
                <item>
                 <widget class="QLabel" name="labelAccelarationRate_channel5">
                  <property name="text">
-                  <string>Accelaration Rate (mm/s²):</string>
+                  <string>Accelaration Time (mm):</string>
                  </property>
                 </widget>
                </item>
@@ -1687,6 +1812,308 @@
       </layout>
      </widget>
     </widget>
+    <widget class="QWidget" name="tabCommand">
+     <attribute name="title">
+      <string>Command</string>
+     </attribute>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>30</y>
+        <width>771</width>
+        <height>471</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="labelIndependedActuators">
+         <property name="text">
+          <string>Independent Actuators</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_channel1">
+         <item>
+          <widget class="QPushButton" name="pushButtonRefractedCommand_channel1">
+           <property name="text">
+            <string>Refracted</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_channel1">
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="text">
+            <string>Channel1</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonExtendedCommand_channel1">
+           <property name="text">
+            <string>Extended</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="Line" name="line_6">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_channel2">
+         <item>
+          <widget class="QPushButton" name="pushButtonRefractedCommand_channel2">
+           <property name="text">
+            <string>Refracted</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_channel2">
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="text">
+            <string>Channel2</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonExtendedCommand_channel2">
+           <property name="text">
+            <string>Extended</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="Line" name="line_7">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_channel3">
+         <item>
+          <widget class="QPushButton" name="pushButtonRefractedCommand_channel3">
+           <property name="text">
+            <string>Refracted</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_channel3">
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="text">
+            <string>Channel3</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonExtendedCommand_channel3">
+           <property name="text">
+            <string>Extended</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="Line" name="line_8">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_channel4">
+         <item>
+          <widget class="QPushButton" name="pushButtonRefractedCommand_channel4">
+           <property name="text">
+            <string>Refracted</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_channel4">
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="text">
+            <string>Channel4</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonExtendedCommand_channel4">
+           <property name="text">
+            <string>Extended</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="Line" name="line_9">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_channel5">
+         <item>
+          <widget class="QPushButton" name="pushButtonRefractedCommand_channel5">
+           <property name="text">
+            <string>Refracted</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_channel5">
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="text">
+            <string>Channel5</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonExtendedCommand_channel5">
+           <property name="text">
+            <string>Extended</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="Line" name="line_10">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelSynchronousctuators">
+         <property name="text">
+          <string>Synchronous Actuators</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame">
+         <layout class="QHBoxLayout" name="horizontalLayoutLabel">
+          <item>
+           <widget class="QLabel" name="labelMaster">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="text">
+             <string>Master Channel</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelSlave">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="text">
+             <string>Slave Channel</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_ComboBox">
+         <item>
+          <widget class="QComboBox" name="comboBoxMaster">
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="minimumContentsLength">
+            <number>10</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="comboBoxSlave">
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="minimumContentsLength">
+            <number>10</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_Button">
+         <item>
+          <widget class="QPushButton" name="pushButtonExtendedSynchronous">
+           <property name="text">
+            <string>Extended</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonRefractedSynchronous">
+           <property name="text">
+            <string>Refracted</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkBoxReverse">
+           <property name="text">
+            <string>Reverse</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -1694,7 +2121,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1032</width>
+     <width>965</width>
      <height>22</height>
     </rect>
    </property>

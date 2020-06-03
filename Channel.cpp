@@ -84,6 +84,10 @@ void Channel::setPosition(uint16_t _position)
     position = _position;
 }
 
+void Channel::setMaxSpeed(uint8_t _maxSpeed)
+{
+    maxSpeed = _maxSpeed;
+}
 //  "Get" Methods
 string Channel::getModel(void)
 {
@@ -105,7 +109,7 @@ uint8_t Channel::getChannelNumber(void)
     return  channelNumber;
 }
 
-uint8_t Channel::getAccelarationRate(void)
+uint16_t Channel::getAccelarationRate(void)
 {
     return  accelarationRate;
 }
@@ -133,4 +137,9 @@ uint8_t Channel::getPin(void)
 uint16_t Channel::getPosition(void)
 {
     return  position;
+}
+
+uint8_t Channel::getMaxSpeed(void)
+{
+    return  maxSpeed;
 }
