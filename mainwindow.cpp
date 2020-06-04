@@ -1133,7 +1133,6 @@ void MainWindow::setupSequenceTab(void)
         name->addWidget         (editRepetion       );
         grid->addLayout         (name, 0, 0         );
 
-
         for (int i=0; i<MAX_NUMBER_MOVES; i++) {
             move[i] = new QGridLayout();
 
@@ -1192,7 +1191,7 @@ void MainWindow::setupSequenceTab(void)
             slider[i] = new QSlider();
             slider[i]->setObjectName("slider_" + QString::number(i) );
             slider[i]->setOrientation(Qt::Horizontal                );
-            labelSlider[i]->setText("Shift: " + QString::number(slider[i]->tickPosition()) + " mm");
+            labelSlider[i]->setText("Shift: " + QString::number(slider[i]->value()) + " mm");
             connect(slider[i], SIGNAL(sliderReleased()), this, SLOT(changed_slider()));
             range[i] = new QVBoxLayout();
             range[i]->addWidget(labelSlider[i]      );
@@ -1268,21 +1267,21 @@ void MainWindow::setupSequenceTab(void)
         for (int i=0; i < MAX_NUMBER_MOVES; i++) {
             setupCombBoxMasterChannel(i);
             setupCombBoxSlaveChannel(i);
-
-            slider[i]->setRange(0, getChannel(combBoxMasterChannel[i]->currentText().toUInt())->getStrokeLenght());
-            slider[i]->setTickInterval(1);
-            slider[i]->setValue(getChannel(combBoxMasterChannel[i]->currentText().toUInt())->getStrokeLenght());
-            labelSlider[i]->setText( QString::number(slider[i]->value()) + " mm");
-
-            if (combBoxSynchronous[i]->currentText() == "Independend") {
-                labelSlaveChannel[i]    ->setEnabled(false);
-                combBoxSlaveChannel[i]  ->setEnabled(false);
-            }
-            else {
-                labelSlaveChannel[i]    ->setEnabled(true);
-                combBoxSlaveChannel[i]  ->setEnabled(true);
+            if (combBoxMasterChannel[i]->count() > 0) {
+                slider[i]->setRange(0, getChannel(combBoxMasterChannel[i]->currentText().toUInt())->getStrokeLenght());
+                slider[i]->setTickInterval(1);
+                labelSlider[i]->setText( QString::number(slider[i]->value()) + " mm");
+                if (combBoxSynchronous[i]->currentText() == "Independend") {
+                    labelSlaveChannel[i]    ->setEnabled(false);
+                    combBoxSlaveChannel[i]  ->setEnabled(false);
+                }
+                else {
+                    labelSlaveChannel[i]    ->setEnabled(true);
+                    combBoxSlaveChannel[i]  ->setEnabled(true);
+                }
             }
         }
+
 }
 
 void MainWindow::on_newButton(void) {
@@ -1396,13 +1395,13 @@ void MainWindow::on_startButton(void) {
 
             else if (checkSynchronous->currentText() == "Synchronous") {
                if (extended->isChecked()) {
-                    spiCmdAdvanced(getChannel(master->currentText().toUInt())->getPin() , ADVANCEDEXTENDED(), slider->tickPosition());
-                    spiCmdAdvanced(getChannel(slave->currentText().toUInt())->getPin()  , ADVANCEDEXTENDED(), slider->tickPosition());
+                    spiCmdAdvanced(getChannel(master->currentText().toUInt())->getPin() , ADVANCEDEXTENDED(), slider->value());
+                    spiCmdAdvanced(getChannel(slave->currentText().toUInt())->getPin()  , ADVANCEDEXTENDED(), slider->value());
                }
 
                else if (refracted->isChecked()) {
-                    spiCmdAdvanced(getChannel(master->currentText().toUInt())->getPin() , ADVANCEDREFRACTED(), slider->tickPosition());
-                    spiCmdAdvanced(getChannel(slave->currentText().toUInt())->getPin()  , ADVANCEDREFRACTED(), slider->tickPosition());
+                    spiCmdAdvanced(getChannel(master->currentText().toUInt())->getPin() , ADVANCEDREFRACTED(), slider->value());
+                    spiCmdAdvanced(getChannel(slave->currentText().toUInt())->getPin()  , ADVANCEDREFRACTED(), slider->value());
                }
 
                while(_flagAdvancedMaster == 0 || _flagAdvancedSlave == 0) {
@@ -1424,13 +1423,13 @@ void MainWindow::on_startButton(void) {
 
             else if (checkSynchronous->currentText() == "Reverse Synchronous") {
                if (extended->isChecked()) {
-                    spiCmdAdvanced(getChannel(master->currentText().toUInt())->getPin() , ADVANCEDEXTENDED()    , slider->tickPosition());
-                    spiCmdAdvanced(getChannel(slave->currentText().toUInt())->getPin()  , ADVANCEDREFRACTED()   , slider->tickPosition());
+                    spiCmdAdvanced(getChannel(master->currentText().toUInt())->getPin() , ADVANCEDEXTENDED()    , slider->value());
+                    spiCmdAdvanced(getChannel(slave->currentText().toUInt())->getPin()  , ADVANCEDREFRACTED()   , slider->value());
                }
 
                else if (refracted->isChecked()) {
-                    spiCmdAdvanced(getChannel(master->currentText().toUInt())->getPin() , ADVANCEDREFRACTED()   , slider->tickPosition());
-                    spiCmdAdvanced(getChannel(slave->currentText().toUInt())->getPin()  , ADVANCEDEXTENDED()    , slider->tickPosition());
+                    spiCmdAdvanced(getChannel(master->currentText().toUInt())->getPin() , ADVANCEDREFRACTED()   , slider->value());
+                    spiCmdAdvanced(getChannel(slave->currentText().toUInt())->getPin()  , ADVANCEDEXTENDED()    , slider->value());
                }
 
                while(_flagAdvancedMaster == 0 || _flagAdvancedSlave == 0) {
@@ -1486,7 +1485,7 @@ void MainWindow::changed_combBoxMaster(QString)
         Channel*    _ch         = getChannel(_comboBox->currentText().toUInt());
 
         _slider->setRange(0, (int) _ch->getStrokeLenght());
-        _label->setText(QString::number(_slider->value()));
+        _label->setText(QString::number(_slider->value()) + " mm");
     }
 }
 
@@ -1496,11 +1495,13 @@ void MainWindow::setupCombBoxMasterChannel (uint8_t _move)
     for (Channel* _ch : getListOfChannels()) {
         if (_ch->getCommunication() == "Enable")
             _combBoxMaster->addItem(QString::number(_ch->getChannelNumber()));
+
     }
 
 }
 
-void MainWindow::setupCombBoxSlaveChannel (uint8_t _move) {
+void MainWindow::setupCombBoxSlaveChannel (uint8_t _move)
+{
     QComboBox* _combBoxSlave =  ui->tab->widget(TAB_SEQUENCE)->findChild<QComboBox *>("combBoxSlaveChannel_" +  QString::number(_move));
     for (Channel* _ch : getListOfChannels()) {
         if (_ch->getCommunication() == "Enable")

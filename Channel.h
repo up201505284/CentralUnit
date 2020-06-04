@@ -5,7 +5,7 @@
 #include <bcm2835.h>
 
 //  Default values
-#define ACCELARATION_RATE_DEFAULT   (uint16_t)   0
+#define ACCELARATION_RATE_DEFAULT   (uint16_t)  0
 #define STROKE_LENGHT_DEFAULT       (uint16_t)  0
 #define SOFT_START_STOP_DEFAULT     (uint8_t)   0
 #define PULSE_RATE_DEFAULT          (uint8_t)   0xFF
